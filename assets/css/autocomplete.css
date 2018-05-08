@@ -1,0 +1,47 @@
+
+
+
+.amenties .name{
+    font-weight: bold;
+    color: #333;
+}
+.amenties .prop{
+    float: left;
+    width: 50%;
+}
+.amenties .prop .lbl{
+    font-size: 11px;
+    line-height: 11px;
+    float: left;
+    color: #AAA;
+    margin-left: 25px;
+    margin-right: 5px;
+}
+.amenties .prop .val{
+    font-size: 11px;
+    line-height: 11px;
+    color: #666;
+}
+
+.ms-sel-item .name{
+    float: left;
+}
+.help-text{
+    margin:10px 0;
+    color: #0D47A1;
+    font-size:12px;
+}
+.error{
+    color: red;
+    font-size:11px;
+}
+#success_msg{
+    padding: 5px;
+    background-color: green;
+    border: 1px solid #3c3c3c;
+    color: #fff0ff;
+}
+#adj-width{
+    margin-bottom: 10px;
+
+}
