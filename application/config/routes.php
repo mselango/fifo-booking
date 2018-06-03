@@ -55,5 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin/hotels/list'] = 'hotel/listHotel';
 $route['admin/hotels/add'] = 'hotel/addHotel';
 $route['admin/hotels/save'] = 'hotel/saveHotel';
+$route['admin/hotels/edit/(:any)'] = 'hotel/editHotel/$1';
 $route['admin/hotels/rooms/add/(:any)'] = 'hotelRooms/add/$1';
 $route['admin/hotels/rooms/save'] = 'hotelRooms/saveHotelRooms';
+$route['hotel/manage'] = 'hotel/manage';

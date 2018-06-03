@@ -1,0 +1,14 @@
+/node_modules
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+Homestead.json
+Homestead.yaml
+.env
+/nbproject
+.php_cs.cache
+/storage/clockwork
+/filestorage
+/Envoy*
+!Envoy.blade.php

@@ -4,10 +4,13 @@
     <!-- Bootstrap Core Js -->
     <script src="<?php echo PLUGINS_URL; ?>bootstrap/js/bootstrap.js"></script>
 
-   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   <script src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>
    <script src="<?php echo base_url('assets/js/autocomplete.js');?>"></script>
+   <script src="<?php echo base_url('assets/js/hotel.js');?>"></script>
    <script src="<?php echo base_url('assets/js/magicsuggest.js');?>"></script>
+   <script src="<?php echo base_url('assets/js/jquery.validate.js');?>"></script>
    <script src="<?php echo base_url('assets/js/common.js');?>"></script>
+   <script src="<?php echo base_url('assets/js/jquery.blockUI.js');?>"></script>
     <!-- Slimscroll Plugin Js -->
     <script src="<?php echo PLUGINS_URL; ?>jquery-slimscroll/jquery.slimscroll.js"></script>
 

@@ -109,9 +109,12 @@
     border-bottom: 1px solid #CCC;
 }
 .ms-res-ctn{
-    width: 40%;
+    width: 90%;
     display: block;
     overflow-y: auto;
+}
+#hotel_amenties_form .dropdown-menu {
+    margin-top:0px !important;
 }
 .ms-res-ctn .ms-res-group{
     line-height: 23px;

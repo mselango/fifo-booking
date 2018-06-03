@@ -45,3 +45,11 @@
     margin-bottom: 10px;
 
 }
+div.growlUI {
+    opacity: 0.9;
+}
+div.growlUI h1, div.growlUI h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: white; padding: 5px 5px 5px 25px; text-align: left
+}

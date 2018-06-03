@@ -1,5 +1,11 @@
 $(function() {
 
+    $(".btn-pref .btn").click(function () {
+      $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+      // $(".tab").addClass("active"); // instead of this do the below
+      $(this).removeClass("btn-default").addClass("btn-primary");
+    });
+
     $("#admins").autocomplete({
       source: base_url + "masterData/hotelAdmin",
       minLength: 2,
@@ -33,5 +39,17 @@ $(function() {
         }
     });
 
+
+  $('#basic_hotel_form').validate({
+    highlight: function (input) {
+      $(input).parents('.form-control').addClass('error');
+    },
+    unhighlight: function (input) {
+      $(input).parents('.form-control').removeClass('error');
+    },
+    errorPlacement: function (error, element) {
+      $(element).parents('.form-ele').append(error);
+    }
+  });
 
 });

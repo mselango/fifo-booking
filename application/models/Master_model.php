@@ -57,4 +57,19 @@ class Master_model extends CI_Model
         }
         return  $query->get()->result_array();
     }
+    public function getHotelCategoryList($keyword = '')
+    {
+        $query = $this->db->select('id,name as label')
+            ->from('fifo_hotel_categories');
+        if($keyword) {
+            $query->like('name',$keyword, 'both');
+        }
+        return  $query->get()->result_array();
+    }
+    public function getCurrencyList()
+    {
+        $query = $this->db->select('id,code')
+            ->from('fifo_currencies');
+        return  $query->get()->result_array();
+    }
 }

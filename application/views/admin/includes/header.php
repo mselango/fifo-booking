@@ -32,11 +32,11 @@
     <link href="<?php echo CSS_URL; ?>themes/all-themes.css" rel="stylesheet" />
     <link href="<?php echo ASSETS_URL; ?>css/autocomplete.css" rel="stylesheet" />
     <link href="<?php echo ASSETS_URL; ?>css/magicsuggest.css" rel="stylesheet" />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/jquery-ui.css">
     <script>var base_url = '<?php echo base_url() ?>';</script>
 </head>
 
-<body class="theme-red">
+<body class="theme-red ">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
