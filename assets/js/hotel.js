@@ -17,10 +17,10 @@ $(function() {
     data: form_data,
     type: 'post',
     success: function (response) {
-      $.growlUI('Success!!!', 'uploaded successfully');
+      $.growlUI('Success!!!', response.message);
     },
     error: function (response) {
-      $.growlUI('Error!!!', response.success_code);
+      $.growlUI('Error!!!', response.message);
 
     }
   });

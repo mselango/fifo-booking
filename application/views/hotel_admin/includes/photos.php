@@ -6,6 +6,11 @@
     <label for="">Photos</label>
     <input type="file" id="file" name="zip_file" />
   </div>
+
+  <div class="clearfix"></div>
+  <div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 form-ele">
+    <button type="button"  id="upload" class="btn btn-default">Upload</button>
+  </div>
   <div class="clearfix"></div>
     <?php
     $dir = $hotel['image_path'];
@@ -22,9 +27,4 @@
     }
 
     ?>
-  <div class="clearfix"></div>
-  <div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 form-ele">
-    <button type="button"  id="upload" class="btn btn-default">Upload</button>
-  </div>
-  <div class="clearfix"></div>
 </form>

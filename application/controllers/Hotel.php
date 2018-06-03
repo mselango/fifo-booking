@@ -122,11 +122,28 @@ class Hotel extends CI_Controller {
 
     }
 
+    public function rrmdir($dir) {
+        if (is_dir($dir)) {
+            $objects = scandir($dir);
+            foreach ($objects as $object) {
+                if ($object != "." && $object != "..") {
+                    if (is_dir($dir."/".$object))
+                        rrmdir($dir."/".$object);
+                    else
+                        unlink($dir."/".$object);
+                }
+            }
+            rmdir($dir);
+        }
+    }
+
     public function savePhotos()
     {
         $config['upload_path']          = './uploads/';
         $config['allowed_types']        = 'zip';
         $hotelName = $this->input->post('hotel_name');
+        $uploadPath = FCPATH.'/uploads/'.$hotelName.'/';
+        $this->rrmdir($uploadPath);
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('file'))
         {
@@ -141,9 +158,9 @@ class Hotel extends CI_Controller {
                 unlink($data['upload_data']['full_path']);
                 $this->hotel_model->saveHotelPhotos($this->input->post('hotel_id'), $uploadPath);
             }
-            return ['success_code' => 200, 'upload_path' => $uploadPath];
+            echo json_encode(['success' => true, 'message' => 'data saved successfully']);
         } else {
-            return ['success_code' => 422, 'errors' => $this->upload->display_errors()];
+            echo json_encode(['success' => false, 'message' => 'error','error' => $this->upload->display_errors()]);
         }
 
     }
