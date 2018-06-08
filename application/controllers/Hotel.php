@@ -181,63 +181,24 @@ class Hotel extends CI_Controller {
                 'rules' => 'required'
             ],
             [
-                'field' => 'basic[contact_no]',
+                'field' => 'contact[contact_no]',
                 'label' => 'Contact No',
                 'rules' => 'required'
-            ],
-            [
-                'field' => 'basic[check_in]',
-                'label' => 'Check In',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'basic[check_out]',
-                'label' => 'Check Out',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'details[address1]',
-                'label' => 'Address1',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'details[city]',
-                'label' => 'City',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'details[state]',
-                'label' => 'State',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'details[country]',
-                'label' => 'Country',
-                'rules' => 'required'
-            ],
-            [
-                'field' => 'details[policies]',
-                'label' => 'Policies',
-                'rules' => 'required'
             ]
-
         ];
         if($userType == 'exist') {
-            $rule1 = [[
+            $rule1 = [
+                [
                 'field' => 'basic[user_id]',
                 'label' => 'Owner',
                 'rules' => 'required'
-            ]];
+            ]
+            ];
             $rules = array_merge_recursive($rules, $rule1);
         }
 
         if($userType == 'notexist') {
             $rule2 = [
-                [
-                    'field' => 'user[user_name]',
-                    'label' => 'User Name',
-                    'rules' => 'required'
-                ],
                 [
                     'field' => 'user[user_name]',
                     'label' => 'User Name',

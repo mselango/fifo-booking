@@ -21,9 +21,21 @@ class Hotel_model extends CI_Model
            $data['details']['hotel_id'] = $hotelId;
            $data['details']['image_path'] = !empty($uploadData) ? $uploadData['upload_path'] : null;
            $this->db->insert('fifo_hotel_details', $data['details']);
-           $this->insertAmenties($data['amenties'], $hotelId);
+
+           if(!empty($data['amenties'])) {
+               $this->insertAmenties($data['amenties'], $hotelId);
+           }
+           if(!empty($data['details']['policies'])) {
+               $policy['general_policy'] = $data['details']['policies'];
+               $policy['hotel_id'] = $hotelId;
+               $this->saveHotelPolicies($policy);
+           }
+           //save hotel contacts//
+           $contact['hotel_id'] = $hotelId;
+           $contact['contact_no'] = $data['contact']['contact_no'];
+           $this->saveHotelContacts($contact);
        }
-       return ;
+       return true ;
     }
 
     public function saveHotel($data)
@@ -70,6 +82,16 @@ class Hotel_model extends CI_Model
             ->row_array();
     }
 
+    public function getHotelPolicies($id)
+    {
+        return $this->db
+            ->select('*')
+            ->from('fifo_hotel_policies')
+            ->where('hotel_id', $id)
+            ->get()
+            ->row_array();
+    }
+
     public function saveHotelContacts($data)
     {
         $hotelContact = $this->getHotelContacts($data['hotel_id']);
@@ -77,6 +99,17 @@ class Hotel_model extends CI_Model
             $this->db->update('fifo_hotel_contacts', $data, ['hotel_id' => $data['hotel_id']]);
         }else{
             $this->db->insert('fifo_hotel_contacts', $data);
+        }
+        return '';
+    }
+
+    public function saveHotelPolicies($data)
+    {
+        $hotelContact = $this->getHotelPolicies($data['hotel_id']);
+        if(!empty($hotelContact)) {
+            $this->db->update('fifo_hotel_policies', $data, ['hotel_id' => $data['hotel_id']]);
+        }else{
+            $this->db->insert('fifo_hotel_policies', $data);
         }
         return '';
     }
@@ -132,9 +165,10 @@ class Hotel_model extends CI_Model
     public function getAllHotels()
     {
         return $this->db
-            ->select('fifo_hotels.id,fifo_hotels.name,fifo_hotels.contact_no,fifo_users.user_name,fifo_hotel_details.city')
+            ->select('fifo_hotels.id,fifo_hotels.name,fifo_hotel_contacts.contact_no,fifo_users.user_name,fifo_hotel_details.city')
             ->from('fifo_hotels')
             ->join('fifo_hotel_details','fifo_hotels.id = fifo_hotel_details.hotel_id')
+            ->join('fifo_hotel_contacts','fifo_hotels.id = fifo_hotel_contacts.hotel_id')
             ->join('fifo_users','fifo_hotels.user_id = fifo_users.id')
             ->get()
             ->result_array();

@@ -15,14 +15,14 @@ class HotelRooms extends CI_Controller
     public function add($id)
     {
         $hotelId = base64_decode($id);
-        $data['HotelAdmin'] = $this->hotel_model->getHotelInfo($hotelId);
+        $data['hotel'] = $this->hotel_model->getHotelInfo($hotelId);
         $this->load->view('admin/hotels/add_rooms', $data);
     }
 
     public function saveHotelRooms()
     {
         $hotelId = $this->input->post('hotel_id');
-        $data['HotelAdmin'] = $this->hotel_model->getHotelInfo($hotelId);
+        $data['hotel'] = $this->hotel_model->getHotelInfo($hotelId);
         $rules = $this->validationRules();
         $this->form_validation->set_rules($rules);
         if ($this->form_validation->run() === false) {
