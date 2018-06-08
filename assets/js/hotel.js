@@ -1,6 +1,4 @@
-$(function() {
-  $(".error").hide();
-});
+
 
   $( "#upload" ).click(function() {
   var file_data = $('#file').prop('files')[0];
