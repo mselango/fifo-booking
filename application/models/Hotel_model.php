@@ -199,8 +199,8 @@ class Hotel_model extends CI_Model
         return $this->db
             ->select('fifo_hotels.*,fifo_hotel_details.id as detail_id,fifo_hotel_details.*,fifo_states.name as state_name',false)
             ->from('fifo_hotels')
-            ->join('fifo_hotel_details','fifo_hotels.id = fifo_hotel_details.hotel_id')
-            ->join('fifo_states','fifo_states.id = fifo_hotel_details.state')
+            ->join('fifo_hotel_details','fifo_hotels.id = fifo_hotel_details.hotel_id','left')
+            ->join('fifo_states','fifo_states.id = fifo_hotel_details.state','left')
             ->where('fifo_hotels.id', $hotelId)
             ->get()
             ->row_array();

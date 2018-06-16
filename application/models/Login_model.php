@@ -15,22 +15,27 @@ class Login_model extends CI_Model {
 	/*Get User Login Information*/
 	function get_user_by_login($username)
 	{
-		
+
 		$this->db->select('*');
 		
-		$this->db->where('username', $username);
+		$this->db->where('user_name', $username);
+
+		$query = $this->db
+            ->from('fifo_users')
+            ->join('fifo_user_roles','fifo_user_roles.user_id = fifo_users.id')
+            ->get();
 		
-		$this->db->where('status','Active');
-		
-		$query = $this->db->get($this->user_tbl);	
-		
-		if($query->num_rows()==1)
-		
-			return $query->row();
-			
+		if($query->num_rows()==1) {
+            return $query->row();
+        }
 		return NULL;
 		
 	}
+
+	function getHotelAdmin($userId)
+    {
+       return $this->db->from('fifo_hotels')->where('user_id', $userId)->get()->row();
+    }
 	
 	// Insert User Log When the User Logged in
 	

@@ -45,47 +45,25 @@ class User_auth
 	 */
 	function login($username, $password, $role)
 	{
-		if ((strlen($username) > 0) AND (strlen($password) > 0)) {
-
-			// Which function to use to login (based on config)
-			
-
-			if (!is_null($user = $this->ci->login_model->get_user_by_login($username))) {	// login ok
-
-				
-				if ($password == $user->password && $role==$user->userrole) {		// password ok
-
-					if ($user->status =='Inactive') 
-					{									// fail - banned
-						$this->error = array('message' => "Your account is deactivated.Please contact admin..");
-
-					} 
-					else 
-					{
-						//$login = array("user_fk"=>$user->user_pk,"userdetails"=>"user ".$user->username .' logged in',"loginat"=>date("Y-m-d H:i:s"),"ipaddress"=>$_SERVER['REMOTE_ADDR']);
-						//$login_id = $this->ci->login_model->insert_log_data($login);
-						$this->ci->session->set_userdata("user_data",array(
-								'user_pk'	=> $user->user_pk,
-								'username'	=> $user->username,
-								//'email'	=> $user->email,
-								'userrole'		=> $user->userrole,
-								'status'	=> ($user->status == 'Active') ? 'active' : 'inactive',
-								//'login_id' =>$login_id,
-								
-						));
-						return "success";
-						
-					}
-				} else {														// fail - wrong password
-					
-					return 'Incorrect Password';
-				}
-			} else {															// fail - wrong login
-				
-				
-				return 'Invalid Login Details';
-			}
-		}
+        $hotelData = '';
+        if (!is_null($user = $this->ci->login_model->get_user_by_login($username))) {	// login ok
+            if (md5($password) == $user->password && $role == $user->role_id) {		// password ok
+                if ($user->status == 0)
+                {									// fail - banned
+                    return "Your account is deactivated.Please contact admin..";
+                }
+                else
+                {
+                    if($user->role_id == 2) {
+                        $hotelData = $this->ci->login_model->getHotelAdmin($user->id);
+                    }
+                    $this->ci->session->set_userdata(["user_data" => $user,'session_hotel' => $hotelData]);
+                    return "success";
+                }
+            } else {														// fail - wrong password
+                return 'Incorrect Password';
+            }
+        }
 		
 		return FALSE;
 	}
@@ -98,8 +76,6 @@ class User_auth
 	function logout()
 	{
 		$this->delete_autologin();
-
-		// See http://codeigniter.com/forums/viewreply/662369/ as the reason for the next line
 		$this->ci->session->unset_userdata("user_data");
 		$this->ci->session->sess_destroy();
 	}
@@ -113,7 +89,6 @@ class User_auth
 	function is_logged_in($status = 'active')
 	{
 		$user_data = $this->ci->session->userdata("user_data");
-		
 		if(isset($user_data["status"]))
 			return $user_data["status"] === ($status ? 'active' : 'inactive');
 		else
@@ -131,7 +106,7 @@ class User_auth
 	{
 		$user_data = $this->ci->session->userdata("user_data");
 		
-		return $user_data['user_pk'];
+		return $user_data['id'];
 	}
         function get_dealercode()
 	{

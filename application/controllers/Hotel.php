@@ -13,7 +13,8 @@ class Hotel extends CI_Controller {
 
     public function manage()
     {
-        $hotelId = 1;
+        $hotelSession = $this->session->userdata('session_hotel');
+        $hotelId = $hotelSession->id;
         $data['countries'] = $this->master_model->getCountryList();
         $data['currencies'] = $this->master_model->getCurrencyList();
         $data['amenties'] = $this->hotel_model->getHotelAmentiesList($hotelId);

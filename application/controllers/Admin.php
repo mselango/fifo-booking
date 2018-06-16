@@ -26,19 +26,28 @@ class Admin extends CI_Controller {
 		header('Pragma: no-cache'); 
 	}
 
+	public function hotel()
+    {
+        $data=array();
+        $data['admin'] = 2;
+        $this->load->view('admin/login',$data);
+    }
+
 	public function index()
 	{
 		$data=array();
-		
-		
+		$data['admin'] = !empty($this->input->post("txtAdmin")) ? $this->input->post("txtAdmin") : 1;
 		if($this->input->post("username"))
 		{
-			//exit();
-			$result = $this->user_auth->login($this->input->post("username"),$this->input->post("password"),$this->input->post("txtAdmin"));
-			
-			if($result=="success")
+            $result = $this->user_auth->login($this->input->post("username"),$this->input->post("password"),$this->input->post("txtAdmin"));
+
+            if($result=="success")
 			{
-				redirect(BASE_URL."admin/dashboard/");
+                $sessionData = $this->session->userdata('user_data');
+                if($sessionData->role_id == 1)
+				    redirect(BASE_URL."admin/dashboard/");
+                if($sessionData->role_id == 2)
+                    redirect(BASE_URL."hotel/manage");
 			}
 			else
 			{
@@ -55,15 +64,19 @@ class Admin extends CI_Controller {
 	}
 	
 	public function logout()
-	{
-		$this->load->model('login_model');
-		
-		//$login_id = $this->user_auth->get_user_login_id();
-		
-		//$this->login_model->update_log_data($login_id);
-		
-		$this->user_auth->logout();
-		
-		redirect(BASE_URL."admin?logout=success");
-	}
+    {
+        $this->load->model('login_model');
+
+        $sessionData = $this->session->userdata('user_data');
+
+        if ($sessionData->role_id == 1) {
+            $redirectUrl = 'admin';
+        } else {
+            $redirectUrl = 'hotelAdmin';
+        }
+
+        $this->user_auth->logout();
+
+        redirect(BASE_URL . $redirectUrl);
+    }
 }

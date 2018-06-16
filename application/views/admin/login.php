@@ -33,8 +33,8 @@
         <div class="card">
             <div class="body">
                 <form name="login" id="frm_login" method="post" action="<?php echo BASE_URL."admin/index" ?>">
-				<input type="hidden" class="form-control" name="txtAdmin" value="admin">
-                    <div class="msg">Sign in to start your session</div>
+				        <input type="hidden" class="form-control" name="txtAdmin" value="<?php echo $admin;?>">
+                    <div class="msg error" style="color:red"><?php if(isset($error)) echo $error;?></div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
