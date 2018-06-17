@@ -187,6 +187,8 @@ class Hotel_model extends CI_Model
     public function saveHotelRoomsData($data, $uploadData)
     {
         if ($data['hotel_id']) {
+            $existingRoom = $this->getHotelRooms($data['hotel_id']);
+            $data['default'] = count($existingRoom)> 0 ? 0 : 1;
             unset($data['hotel_name']);
             $data['images'] = !empty($uploadData) ? $uploadData['upload_path'] : null;
             $this->db->insert('fifo_hotel_rooms', $data);
@@ -194,13 +196,21 @@ class Hotel_model extends CI_Model
         return true ;
     }
 
+    public function getHotelRooms($hotelId)
+    {
+        return $this->db->select('*')->from('fifo_hotel_rooms')->where('hotel_id', $hotelId)->get()->result_array();
+    }
+
     public function getHotelDetails($hotelId)
     {
         return $this->db
-            ->select('fifo_hotels.*,fifo_hotel_details.id as detail_id,fifo_hotel_details.*,fifo_states.name as state_name',false)
+            ->select('fifo_hotels.*,fifo_hotel_details.id as detail_id,fifo_hotel_details.*,fifo_states.name as state_name,
+            fifo_countries.name as country',false)
             ->from('fifo_hotels')
             ->join('fifo_hotel_details','fifo_hotels.id = fifo_hotel_details.hotel_id','left')
             ->join('fifo_states','fifo_states.id = fifo_hotel_details.state','left')
+            ->join('fifo_countries','fifo_countries.id = fifo_hotel_details.country','left')
+            ->join('fifo_hotel_contacts','fifo_hotels.id = fifo_hotel_contacts.hotel_id')
             ->where('fifo_hotels.id', $hotelId)
             ->get()
             ->row_array();
@@ -223,9 +233,48 @@ class Hotel_model extends CI_Model
         return $data;
     }
 
+    public function getHotelAmenties($hotelId)
+    {
+        $amenties = $this->db
+            ->select('*')
+            ->from('fifo_hotel_amenties')
+            ->join('fifo_amenties','fifo_amenties.id = fifo_hotel_amenties.amenty_id')
+            ->where('hotel_id', $hotelId)
+            ->get()
+            ->result_array();
+        return $amenties;
+    }
+
     public function saveHotelPhotos($hotelId, $path)
     {
         $this->db->update('fifo_hotel_details', ['image_path' => $path], ['hotel_id' => $hotelId]);
         return ;
+    }
+
+    public function getCombinedSearchList($keyword)
+    {
+        return  $this->db->query("SELECT name as label from fifo_hotels  where name like '%$keyword%' UNION select city as label from fifo_hotel_details
+                 where city like '%$keyword%'")
+        ->result_array();
+
+    }
+
+    public function getHotelSearchList($search)
+    {
+        return $this->db
+            ->select('fifo_hotels.id as hotelid,fifo_hotels.*,fifo_hotel_details.*,fifo_states.name as state_name, fifo_hotel_contacts.*,fifo_hotel_rooms.*',false)
+            ->from('fifo_hotels')
+            ->join('fifo_hotel_details','fifo_hotels.id = fifo_hotel_details.hotel_id')
+            ->join('fifo_hotel_rooms','fifo_hotels.id = fifo_hotel_rooms.hotel_id')
+            ->join('fifo_states','fifo_states.id = fifo_hotel_details.state')
+            ->join('fifo_hotel_contacts','fifo_hotels.id = fifo_hotel_contacts.hotel_id')
+            ->group_start()
+            ->where('fifo_hotels.name',$search)
+            ->or_where('fifo_hotel_details.city',$search)
+            ->group_end()
+            ->group_by('fifo_hotels.name')
+            ->get()
+            ->result_array();
+
     }
 }

@@ -8,6 +8,7 @@ class MasterData extends CI_Controller
     {
         parent::__construct();
         $this->load->model('master_model');
+        $this->load->model('hotel_model');
     }
 
     public function hotelAdmin()
@@ -53,6 +54,13 @@ class MasterData extends CI_Controller
             ->set_output(json_encode($response));
 
     }
+    public function searchList()
+    {
+        $keyword = $this->input->get('term');
+        $data = $this->hotel_model->getCombinedSearchList($keyword);
+        return $this->outputResponse($data);
+    }
+
     public function formatData($inData)
     {
         $result = [];

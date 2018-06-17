@@ -1,0 +1,19 @@
+.logo-size{
+	height:75% !important;
+}
+.successClass{
+	color: green;
+    padding: 10px;
+    position: relative;
+    border-radius: 3px;
+    top: -5px;
+    background: #d0f5d0;
+}
+.failedClass{
+	color: red;
+    padding: 10px;
+    position: relative;
+    border-radius: 3px;
+    top: -5px;
+    background: #ffdede;
+}
