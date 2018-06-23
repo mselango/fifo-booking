@@ -72,4 +72,29 @@ class Master_model extends CI_Model
             ->from('fifo_currencies');
         return  $query->get()->result_array();
     }
+
+    public function getRoomViews()
+    {
+        $query = $this->db->select('id,name')
+            ->from('fifo_room_views');
+        return  $query->get()->result_array();
+    }
+    public function getRoomTypes()
+    {
+        $query = $this->db->select('id,name')
+            ->from('fifo_room_types');
+        return  $query->get()->result_array();
+    }
+    public function getBedTypes()
+    {
+        $query = $this->db->select('id,name')
+            ->from('fifo_bed_types');
+        return  $query->get()->result_array();
+    }
+    public function getExtraBedTypes()
+    {
+        $query = $this->db->select('id,name')
+            ->from('fifo_extra_bed_types');
+        return  $query->get()->result_array();
+    }
 }

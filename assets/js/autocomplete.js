@@ -39,17 +39,21 @@ $(function() {
         }
     });
 
-
-  $('#basic_hotel_form').validate({
-    highlight: function (input) {
-      $(input).parents('.form-control').addClass('error');
-    },
-    unhighlight: function (input) {
-      $(input).parents('.form-control').removeClass('error');
-    },
-    errorPlacement: function (error, element) {
-      $(element).parents('.form-ele').append(error);
-    }
-  });
+    var ms = $('.services').magicSuggest({
+        data: base_url+ "masterData/amenties",
+        valueField: 'id',
+        displayField: 'label',
+        mode: 'remote',
+        placeholder: 'Amenties',
+        allowFreeEntries: false,
+        allowDuplicates: false,
+        renderer: function(data){
+            return '<div class="amenties"><div class="name">' + data.label + '</div></div>';
+        },
+        resultAsString: true,
+        selectionRenderer: function(data){
+            return '<div class="name">' + data.label + '</div>';
+        }
+    });
 
 });

@@ -47,6 +47,18 @@
                                 <div class="hidden-xs">Photos</div>
                               </button>
                             </div>
+
+                          <div class="btn-group" role="group">
+                              <button type="button" id="following" class="btn btn-default" href="#tab6" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                  <div class="hidden-xs">Policies</div>
+                              </button>
+                          </div>
+
+                          <div class="btn-group" role="group">
+                              <button type="button" id="following" class="btn btn-default" href="#tab7" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                  <div class="hidden-xs">Rooms</div>
+                              </button>
+                          </div>
                           </div>
 
                         </div>
@@ -69,6 +81,13 @@
                               <div class="tab-pane fade in" id="tab5">
                                   <?php $this->load->view('hotel_admin/includes/photos.php')?>
                               </div>
+                              <div class="tab-pane fade in" id="tab6">
+                                <?php $this->load->view('hotel_admin/includes/policies.php')?>
+                              </div>
+
+                            <div class="tab-pane fade in" id="tab7">
+                                <?php $this->load->view('hotel_admin/includes/rooms.php')?>
+                            </div>
                             </div>
                           </div>
 

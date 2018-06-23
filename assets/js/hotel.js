@@ -50,8 +50,8 @@ $( "#basic_submit" ).click(function( event ) {
       dataType: "json",
       success: function (response) {
         if(response.success == true) {
-          $(document).scrollTop(0);
-          $.growlUI('Success!!!', response.message);
+          alert(response.message);
+          location.reload(true);
         }
       },
       error: function () {
@@ -158,5 +158,119 @@ $( "#amenty_submit" ).click(function( event ) {
 
 });
 
+
+  $( "#save_hotel_rooms" ).click(function( event ) {
+     var error = false;
+      $(".error").remove();
+      $('.validate-field').each(
+          function(index){
+              if($(this).val() == '')
+              {
+                  $(this).css('border','1px solid red');
+                  $(this).after('<div class="error" id="avc">This field is required</div>')
+                  $(".error").show();
+                  error=true;
+                  $(document).scrollTop(180);
+              } else {
+                  $(this).css('border','1px solid #ccc');
+              }
+          }
+      );
+      if(error === false) {
+          var data = $("#hotel_rooms_form").serialize();
+          $.ajax({
+              type: "POST",
+              url: base_url + "HotelRooms/save",
+              data: data,
+              dataType: "json",
+              success: function (response) {
+                  if(response.success == true) {
+                    alert(response.message);
+                    $("#close_color_box").click();
+                  }
+              },
+              error: function () {
+                  alert('error handing here');
+              }
+          });
+      }else{
+          alert('mandatory fields are missing')
+      }
+  });
+
+  $( "#edit_hotel_rooms" ).click(function( event ) {
+    var error = false;
+    $(".error").remove();
+    $('.validate-field').each(
+      function(index){
+        if($(this).val() == '')
+        {
+          $(this).css('border','1px solid red');
+          $(this).after('<div class="error" id="avc">This field is required</div>')
+          $(".error").show();
+          error=true;
+          $(document).scrollTop(180);
+        } else {
+          $(this).css('border','1px solid #ccc');
+        }
+      }
+    );
+    if(error === false) {
+      var data = $("#edit_rooms_form").serialize();
+      $.ajax({
+        type: "POST",
+        url: base_url + "HotelRooms/save",
+        data: data,
+        dataType: "json",
+        success: function (response) {
+          if(response.success == true) {
+            alert(response.message);
+            $("#close_color_box").click();
+          }
+        },
+        error: function () {
+          alert('error handing here');
+        }
+      });
+    }else{
+      alert('mandatory fields are missing')
+    }
+  });
+
+
+  $( "#policy_submit" ).click(function( event ) {
+    var error = false;
+    $(".error").remove();
+    $('#hotel_policy_form input, #hotel_policy_form select').each(
+      function(index){
+        if($(this).val() == '')
+        {
+          $(this).css('border','1px solid red');
+          $(this).after('<div class="error" id="avc">This field is required</div>')
+          $(".error").show();
+          error=true;
+          $(document).scrollTop(180);
+        } else {
+          $(this).css('border','1px solid #ccc');
+        }
+      }
+    );
+    if(error === false) {
+      var data = $("#hotel_policy_form").serialize();
+      $.ajax({
+        type: "POST",
+        url: base_url + "hotel/savePolicies",
+        data: data,
+        dataType: "json",
+        success: function (response) {
+          $(document).scrollTop(0);
+          $.growlUI('Success!!!', response.message);
+        },
+        error: function () {
+          alert('error handing here');
+        }
+      });
+    }
+  });
 
 

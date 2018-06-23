@@ -19,6 +19,33 @@ class HotelRooms extends CI_Controller
         $this->load->view('admin/hotels/add_rooms', $data);
     }
 
+    public function edit($roomId)
+    {
+        $data['roomId'] = base64_decode($roomId);
+        $data['roomData'] = $this->hotel_model->getHotelRoomInfo($data['roomId']);
+        $data['roomTypes'] = $this->master_model->getRoomTypes();
+        $data['bedTypes'] = $this->master_model->getBedTypes();
+        $data['roomViews'] = $this->master_model->getRoomViews();
+        $data['extraBeds'] = $this->master_model->getExtraBedTypes();
+        $this->load->view('hotel_admin/includes/edit_rooms', $data);
+    }
+
+    public function addRooms($hotelId)
+    {
+        $data['hotelId'] = base64_decode($hotelId);
+        $data['roomTypes'] = $this->master_model->getRoomTypes();
+        $data['bedTypes'] = $this->master_model->getBedTypes();
+        $data['roomViews'] = $this->master_model->getRoomViews();
+        $data['extraBeds'] = $this->master_model->getExtraBedTypes();
+        $this->load->view('hotel_admin/includes/add_rooms', $data);
+    }
+
+    public function save()
+    {
+        $this->hotel_model->saveHotelRooms($this->input->post());
+        echo json_encode(['success' => true, 'message' => 'data saved successfully']);
+    }
+
     public function saveHotelRooms()
     {
         $hotelId = $this->input->post('hotel_id');

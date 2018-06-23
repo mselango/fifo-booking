@@ -26,6 +26,12 @@
         <label for="">Parimary Email Id</label>
         <input type="text" class="form-control" value="<?php echo ($hotel_contacts)? $hotel_contacts['email_id'] : '';?>" id="email_id" name="email_id" required>
     </div>
+
+  <div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 form-ele">
+    <label for="">Website</label>
+    <input type="text" class="form-control" value="<?php echo ($hotel_contacts)? $hotel_contacts['website'] : '';?>" id="website" name="website" required>
+  </div>
+
     <div class="clearfix"></div>
     <div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 form-ele">
         <button type="button" class="btn btn-default" id="contact_submit">Save</button>

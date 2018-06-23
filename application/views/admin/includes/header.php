@@ -32,6 +32,7 @@
     <link href="<?php echo CSS_URL; ?>themes/all-themes.css" rel="stylesheet" />
     <link href="<?php echo ASSETS_URL; ?>css/autocomplete.css" rel="stylesheet" />
     <link href="<?php echo ASSETS_URL; ?>css/magicsuggest.css" rel="stylesheet" />
+    <link href="<?php echo ASSETS_URL; ?>css/colorbox.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/jquery-ui.css">
     <script>var base_url = '<?php echo base_url() ?>';</script>
 </head>
@@ -71,11 +72,11 @@
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
-            <div class="navbar-header">
-			    <a class="navbar-brand" href="index.html"><img src="<?php echo IMAGE_URL; ?>logo.png" alt="FIFO Logo" class="adminLogo"></a>
-                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="javascript:void(0);" class="bars"></a>
-            </div>
+<!--            <div class="navbar-header">-->
+<!--			    <a class="navbar-brand" href="index.html"><img src="--><?php //echo IMAGE_URL; ?><!--logo.png" alt="FIFO Logo" class="adminLogo"></a>-->
+<!--                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>-->
+<!--                <a href="javascript:void(0);" class="bars"></a>-->
+<!--            </div>-->
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->

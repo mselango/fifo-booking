@@ -21,6 +21,8 @@ class Hotel extends CI_Controller {
         $data['hotel_type'] = $this->master_model->getHotelCategoryList();
         $data['hotel'] = $this->hotel_model->getHotelDetails($hotelId);
         $data['hotel_contacts'] = $this->hotel_model->getHotelContacts($hotelId);
+        $data['hotel_rooms'] = $this->hotel_model->getHotelRooms($hotelId);
+        $data['hotel_policies'] = $this->hotel_model->getHotelPolicies($hotelId);
         $this->load->view('hotel_admin/manage_hotel', $data);
     }
 
@@ -42,6 +44,13 @@ class Hotel extends CI_Controller {
     {
         $inputData = $this->input->post();
         $hotelId = $this->hotel_model->saveHotel($inputData);
+        echo json_encode(['success' => true, 'message' => 'data saved successfully']);
+    }
+
+    public function savePolicies()
+    {
+        $inputData = $this->input->post();
+        $hotelId = $this->hotel_model->saveHotelPolicies($inputData);
         echo json_encode(['success' => true, 'message' => 'data saved successfully']);
     }
 

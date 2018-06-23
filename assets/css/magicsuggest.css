@@ -265,3 +265,7 @@
     right: 1px;
     border-radius: 0 3px 3px 0;
 }
+#add_hotel_display{margin-left: 5%;}
+#edit_hotel_display{margin-left: 5%;}
+#save_hotel_rooms{margin: 5% 2%;}
+#edit_hotel_rooms{margin: 5% 2%;}

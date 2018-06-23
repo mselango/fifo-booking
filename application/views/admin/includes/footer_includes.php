@@ -6,6 +6,7 @@
 
    <script src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>
    <script src="<?php echo base_url('assets/js/autocomplete.js');?>"></script>
+   <script src="<?php echo base_url('assets/js/jquery.colorbox-min.js');?>"></script>
    <script src="<?php echo base_url('assets/js/hotel.js');?>"></script>
    <script src="<?php echo base_url('assets/js/magicsuggest.js');?>"></script>
    <script src="<?php echo base_url('assets/js/jquery.validate.js');?>"></script>

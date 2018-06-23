@@ -196,9 +196,45 @@ class Hotel_model extends CI_Model
         return true ;
     }
 
+    public function saveHotelRooms($data)
+    {
+        $insData = [
+            "room_name" => $data['room_name'],
+            "hotel_id" => $data['hotel_id'],
+            "room_type" => $data['room_type'],
+            "description" => $data['description'],
+            "room_count" => $data['room_count'],
+            "no_of_adults" => $data['no_of_adults'],
+            "max_adults" => $data['max_adults'],
+            "no_of_childs" => $data['no_of_childs'],
+            "max_child" => $data['max_child'],
+            "actual_price" => $data['actual_price'],
+            "discount_price" => $data['discount_price'],
+            "no_of_guests" => $data['no_of_guests'],
+            "no_of_infants" => $data['no_of_infants'],
+            "bed_type" => $data['bed_type'],
+            "extra_bed_type" => $data['extra_bed_type'],
+            "room_view" => $data['room_view'],
+            "room_size" => $data['room_size_a'].'X'.$data['room_size_b'],
+            "services" => json_encode($data['services'])
+        ];
+        if($data['room_id']){
+            $this->db->update('fifo_hotel_rooms', $insData, ['id' => $data['room_id']]);
+        }else {
+            $this->db->insert('fifo_hotel_rooms', $insData);
+        }
+        return '';
+
+    }
+
     public function getHotelRooms($hotelId)
     {
         return $this->db->select('*')->from('fifo_hotel_rooms')->where('hotel_id', $hotelId)->get()->result_array();
+    }
+
+    public function getHotelRoomInfo($roomId)
+    {
+        return $this->db->select('*')->from('fifo_hotel_rooms')->where('id', $roomId)->get()->row_array();
     }
 
     public function getHotelDetails($hotelId)
