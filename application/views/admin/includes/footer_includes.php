@@ -9,6 +9,9 @@
    <script src="<?php echo base_url('assets/js/jquery.colorbox-min.js');?>"></script>
    <script src="<?php echo base_url('assets/js/hotel.js');?>"></script>
    <script src="<?php echo base_url('assets/js/magicsuggest.js');?>"></script>
+   <script src="<?php echo base_url('assets/js/map.js');?>"></script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhhcUvnrALgOwAFX0q_DsEB2T4bII-_Ys&libraries=places&callback=initMap"
+           async defer></script>
    <script src="<?php echo base_url('assets/js/jquery.validate.js');?>"></script>
    <script src="<?php echo base_url('assets/js/common.js');?>"></script>
    <script src="<?php echo base_url('assets/js/jquery.blockUI.js');?>"></script>

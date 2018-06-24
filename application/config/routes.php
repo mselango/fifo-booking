@@ -64,5 +64,5 @@ $route['admin/hotels/save'] = 'hotel/saveHotel';
 $route['admin/hotels/edit/(:any)'] = 'hotel/editHotel/$1';
 $route['admin/hotels/rooms/add/(:any)'] = 'hotelRooms/add/$1';
 $route['admin/hotels/rooms/save'] = 'hotelRooms/saveHotelRooms';
-$route['hotel/manage'] = 'hotel/manage';
+$route['hotel/manage/(:any)'] = 'hotel/manage/$1';
 $route['hotelAdmin'] = 'Admin/hotel';

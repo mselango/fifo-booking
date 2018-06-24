@@ -29,11 +29,11 @@
 <body id="edit_hotel_display">
 <form id="edit_rooms_form">
   <div class="hotel_rooms">
-    <input type="hidden" name="room_id" value="<?php echo ($roomData) ? $roomData['id'] : '';?>">
-    <input type="hidden" name="hotel_id" value="<?php echo ($roomData) ? $roomData['hotel_id'] : '';?>">
+    <input type="hidden" name="room_id" value="<?php echo !empty($roomData) ? $roomData['id'] : '';?>">
+    <input type="hidden" name="hotel_id" value="<?php echo !empty($roomData) ? $roomData['hotel_id'] : '';?>">
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">Room Name</label>
-      <input type="text" class="form-control validate-field" name="room_name" value="<?php echo ($roomData) ? $roomData['room_name'] : '';?>">
+      <input type="text" class="form-control validate-field" name="room_name" value="<?php echo !empty($roomData) ? $roomData['room_name'] : '';?>">
     </div>
 
     <div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 form-ele">
@@ -52,56 +52,56 @@
 
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">Description</label>
-      <textarea name="description" cols="30" rows="5" class="form-control validate-field no-resize"><?php echo ($roomData) ? $roomData['description'] : '';?>
+      <textarea name="description" cols="30" rows="5" class="form-control validate-field no-resize"><?php echo !empty($roomData) ? $roomData['description'] : '';?>
       </textarea>
     </div>
 
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">No Of Rooms</label>
-      <input type="number" class="form-control validate-field" name="room_count"   value="<?php echo ($roomData) ? $roomData['room_count'] : '';?>">
+      <input type="number" class="form-control validate-field" name="room_count"   value="<?php echo !empty($roomData) ? $roomData['room_count'] : '';?>">
     </div>
     <div class="clearfix"></div>
 
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">Adults (Base)</label>
-      <input type="text" class="form-control validate-field" name="no_of_adults"   value="<?php echo ($roomData) ? $roomData['no_of_adults'] : '';?>">
+      <input type="text" class="form-control validate-field" name="no_of_adults"   value="<?php echo !empty($roomData) ? $roomData['no_of_adults'] : '';?>">
     </div>
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">Adults (Max)</label>
-      <input type="text" class="form-control validate-field" name="max_adults"   value="<?php echo ($roomData) ? $roomData['max_adults'] : '';?>">
+      <input type="text" class="form-control validate-field" name="max_adults"   value="<?php echo !empty($roomData) ? $roomData['max_adults'] : '';?>">
     </div>
     <div class="clearfix"></div>
 
 
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">Childs (Base) </label>
-      <input type="text" class="form-control validate-field" name="no_of_childs"  value="<?php echo ($roomData) ? $roomData['no_of_childs'] : '';?>">
+      <input type="text" class="form-control validate-field" name="no_of_childs"  value="<?php echo !empty($roomData) ? $roomData['no_of_childs'] : '';?>">
     </div>
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">Childs (Max)</label>
-      <input type="text" class="form-control validate-field" name="max_child"   value="<?php echo ($roomData) ? $roomData['max_child'] : '';?>">
+      <input type="text" class="form-control validate-field" name="max_child"   value="<?php echo !empty($roomData) ? $roomData['max_child'] : '';?>">
     </div>
     <div class="clearfix"></div>
 
 
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">Infants (Max)</label>
-      <input type="text" class="form-control validate-field" name="actual_price"   value="<?php echo ($roomData) ? $roomData['actual_price'] : '';?>">
+      <input type="text" class="form-control validate-field" name="actual_price"   value="<?php echo !empty($roomData) ? $roomData['actual_price'] : '';?>">
     </div>
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">Guests (Max)</label>
-      <input type="text" class="form-control validate-field" name="discount_price"   value="<?php echo ($roomData) ? $roomData['discount_price'] : '';?>">
+      <input type="text" class="form-control validate-field" name="discount_price"   value="<?php echo !empty($roomData) ? $roomData['discount_price'] : '';?>">
     </div>
     <div class="clearfix"></div>
 
 
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">Actual Price</label>
-      <input type="text" class="form-control validate-field" name="no_of_guests"   value="<?php echo ($roomData) ? $roomData['no_of_guests'] : '';?>">
+      <input type="text" class="form-control validate-field" name="no_of_guests"   value="<?php echo !empty($roomData) ? $roomData['no_of_guests'] : '';?>">
     </div>
     <div class=" col-xs-10 col-sm-10 col-md-5 col-lg-5 form-ele">
       <label class="form-label">Discounted Price (Final Price)</label>
-      <input type="text" class="form-control validate-field" name="no_of_infants"   value="<?php echo ($roomData) ? $roomData['no_of_infants'] : '';?>">
+      <input type="text" class="form-control validate-field" name="no_of_infants"   value="<?php echo !empty($roomData) ? $roomData['no_of_infants'] : '';?>">
     </div>
     <div class="clearfix"></div>
 

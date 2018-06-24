@@ -1,12 +1,12 @@
 <div class="">
-  <p><a class='youtube' href="<?php echo base_url() ?>/HotelRooms/addRooms/<?php echo ($hotel) ? base64_encode($hotel['id']): '';?>">Add New Room</a></p>
+  <p><a class='youtube' href="<?php echo base_url() ?>/HotelRooms/addRooms/<?php echo !empty($hotel) ? base64_encode($hotel['id']): '';?>">Add New Room</a></p>
   <table class="table table-bordered">
     <tr>
       <td>Room Name</td>
       <td>Description</td>
       <td>Action</td>
     </tr>
-    <?php if($hotel_rooms) {
+    <?php if(!empty($hotel_rooms)) {
       foreach ($hotel_rooms as $room) {
    ?>
     <tr>

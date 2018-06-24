@@ -23,7 +23,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="<?php echo base_url('admin/hotels/add');?>">Add</a>
+                                <a href="<?php echo base_url('hotel/manage');?>">Add</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url('admin/hotels/list');?>">List</a>

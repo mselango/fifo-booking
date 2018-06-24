@@ -1,17 +1,17 @@
 
 <form id="hotel_policy_form">
-    <input type="hidden" class="form-control" value="<?php echo ($hotel)? $hotel['id'] : '';?>" name="hotel_id">
+    <input type="hidden" class="form-control" value="<?php echo !empty($hotel)? $hotel['id'] : '';?>" name="hotel_id">
     <div class=" col-xs-10 col-sm-10 col-md-10 col-lg-10 form-ele">
         <label for="">General Policies</label>
-      <textarea name="general_policy" id="general_policy" required class="form-control" cols="5" rows="5"><?php echo ($hotel_policies)? $hotel_policies['general_policy'] : '';?></textarea>
+      <textarea name="general_policy" id="general_policy" required class="form-control" cols="5" rows="5"><?php echo !empty($hotel_policies)? $hotel_policies['general_policy'] : '';?></textarea>
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-ele">
         <label for="">Cancellation Policy </label>
-      <textarea name="cancellation_policy" id="cancellation_policy" required class="form-control" cols="5" rows="5"><?php echo ($hotel_policies)? $hotel_policies['cancellation_policy'] : '';?></textarea>
+      <textarea name="cancellation_policy" id="cancellation_policy" required class="form-control" cols="5" rows="5"><?php echo !empty($hotel_policies)? $hotel_policies['cancellation_policy'] : '';?></textarea>
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-ele">
         <label for="">Services</label>
-        <textarea name="services" required class="form-control" cols="5" rows="5"><?php echo ($hotel_policies)? $hotel_policies['services'] : '';?></textarea>
+        <textarea name="services" required class="form-control" cols="5" rows="5"><?php echo !empty($hotel_policies)? $hotel_policies['services'] : '';?></textarea>
 
     </div>
 

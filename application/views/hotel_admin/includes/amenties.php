@@ -1,6 +1,6 @@
 
 <form id="hotel_amenties_form">
-    <input type="hidden" class="form-control" value="<?php echo ($hotel)? $hotel['id'] : '';?>" name="hotel_id" id="hotel_id">
+    <input type="hidden" class="form-control" value="<?php echo !empty($hotel)? $hotel['id'] : '';?>" name="hotel_id" id="hotel_id">
     <div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 form-ele">
         <label for="">Amenties</label>
         <?php if(!empty($amenties)) {

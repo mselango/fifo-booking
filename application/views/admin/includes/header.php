@@ -33,6 +33,7 @@
     <link href="<?php echo ASSETS_URL; ?>css/autocomplete.css" rel="stylesheet" />
     <link href="<?php echo ASSETS_URL; ?>css/magicsuggest.css" rel="stylesheet" />
     <link href="<?php echo ASSETS_URL; ?>css/colorbox.css" rel="stylesheet" />
+    <link href="<?php echo ASSETS_URL; ?>css/map.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/jquery-ui.css">
     <script>var base_url = '<?php echo base_url() ?>';</script>
 </head>

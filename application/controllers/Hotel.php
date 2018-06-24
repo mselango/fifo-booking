@@ -11,18 +11,21 @@ class Hotel extends CI_Controller {
         $this->load->model('master_model');
     }
 
-    public function manage()
+    public function manage($hotelId = '')
     {
         $hotelSession = $this->session->userdata('session_hotel');
-        $hotelId = $hotelSession->id;
+        $hotelId = !empty($hotelSession) ? $hotelSession->id : $hotelId;
         $data['countries'] = $this->master_model->getCountryList();
         $data['currencies'] = $this->master_model->getCurrencyList();
-        $data['amenties'] = $this->hotel_model->getHotelAmentiesList($hotelId);
         $data['hotel_type'] = $this->master_model->getHotelCategoryList();
-        $data['hotel'] = $this->hotel_model->getHotelDetails($hotelId);
-        $data['hotel_contacts'] = $this->hotel_model->getHotelContacts($hotelId);
-        $data['hotel_rooms'] = $this->hotel_model->getHotelRooms($hotelId);
-        $data['hotel_policies'] = $this->hotel_model->getHotelPolicies($hotelId);
+        if(!empty($hotelId)) {
+            $data['amenties'] = $this->hotel_model->getHotelAmentiesList($hotelId);
+            $data['hotel'] = $this->hotel_model->getHotelDetails($hotelId);
+            $data['hotel_contacts'] = $this->hotel_model->getHotelContacts($hotelId);
+            $data['hotel_rooms'] = $this->hotel_model->getHotelRooms($hotelId);
+            $data['hotel_policies'] = $this->hotel_model->getHotelPolicies($hotelId);
+            $data['hotel_banks'] = $this->hotel_model->getHotelBanks($hotelId);
+        }
         $this->load->view('hotel_admin/manage_hotel', $data);
     }
 
@@ -44,7 +47,7 @@ class Hotel extends CI_Controller {
     {
         $inputData = $this->input->post();
         $hotelId = $this->hotel_model->saveHotel($inputData);
-        echo json_encode(['success' => true, 'message' => 'data saved successfully']);
+        echo json_encode(['success' => true, 'message' => 'data saved successfully','hotel_id' => $hotelId]);
     }
 
     public function savePolicies()
@@ -54,10 +57,25 @@ class Hotel extends CI_Controller {
         echo json_encode(['success' => true, 'message' => 'data saved successfully']);
     }
 
+    public function saveMaps()
+    {
+        $inputData = $this->input->post();
+        $hotelId = $this->hotel_model->saveHotelMaps($inputData);
+        echo json_encode(['success' => true, 'message' => 'data saved successfully']);
+    }
+
     public function saveAddress()
     {
         $inputData = $this->input->post();
         $this->hotel_model->saveHotelAddress($inputData);
+        echo json_encode(['success' => true, 'message' => 'data saved successfully']);
+
+    }
+
+    public function saveBankDetails()
+    {
+        $inputData = $this->input->post();
+        $this->hotel_model->saveBankDetails($inputData);
         echo json_encode(['success' => true, 'message' => 'data saved successfully']);
 
     }

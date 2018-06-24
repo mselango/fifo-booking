@@ -43,11 +43,7 @@ class Admin extends CI_Controller {
 
             if($result=="success")
 			{
-                $sessionData = $this->session->userdata('user_data');
-                if($sessionData->role_id == 1)
-				    redirect(BASE_URL."admin/dashboard/");
-                if($sessionData->role_id == 2)
-                    redirect(BASE_URL."hotel/manage");
+                redirect(BASE_URL."hotel/manage");
 			}
 			else
 			{

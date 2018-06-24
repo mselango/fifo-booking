@@ -40,7 +40,7 @@
                     <td><?php echo $hotel['user_name'];?></td>
                     <td><?php echo $hotel['contact_no'];?></td>
                     <td><?php echo $hotel['city'];?></td>
-                    <td><a href="<?php echo base_url();?>/admin/hotels/rooms/add/<?php echo base64_encode($hotel['id']);?>">Add Rooms</a> </td>
+                    <td><a href="<?php echo base_url();?>/hotel/manage/<?php echo $hotel['id']?>">Manage</a> </td>
                   </tr>
                   <?php }?>
                   </tbody>

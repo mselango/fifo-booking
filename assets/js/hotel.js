@@ -27,7 +27,7 @@
 $( "#basic_submit" ).click(function( event ) {
   var error = false;
   $(".error").remove();
-  $('#basic_hotel_form input, #basic_hotel_form select').each(
+  $('#basic_hotel_form .validate_field').each(
     function(index){
       if($(this).val() == '')
       {
@@ -51,7 +51,7 @@ $( "#basic_submit" ).click(function( event ) {
       success: function (response) {
         if(response.success == true) {
           alert(response.message);
-          location.reload(true);
+          window.location.href= base_url + 'hotel/manage/'+ response.hotel_id
         }
       },
       error: function () {
@@ -274,3 +274,73 @@ $( "#amenty_submit" ).click(function( event ) {
   });
 
 
+
+  $( "#map_submit" ).click(function( event ) {
+    var error = false;
+    $(".error").remove();
+    $('#hotel_map_form input').each(
+      function(index){
+        if($(this).val() == '')
+        {
+          $(this).css('border','1px solid red');
+          $(this).after('<div class="error" id="avc">This field is required</div>')
+          $(".error").show();
+          error=true;
+          $(document).scrollTop(180);
+        } else {
+          $(this).css('border','1px solid #ccc');
+        }
+      }
+    );
+    if(error === false) {
+      var data = $("#hotel_map_form").serialize();
+      $.ajax({
+        type: "POST",
+        url: base_url + "hotel/saveMaps",
+        data: data,
+        dataType: "json",
+        success: function (response) {
+          $(document).scrollTop(0);
+          $.growlUI('Success!!!', response.message);
+        },
+        error: function () {
+          alert('error handing here');
+        }
+      });
+    }
+  });
+
+  $( "#bank_submit" ).click(function( event ) {
+    var error = false;
+    $(".error").remove();
+    $('#hotel_bank_form .validate-field').each(
+      function(index){
+        if($(this).val() == '')
+        {
+          $(this).css('border','1px solid red');
+          $(this).after('<div class="error" id="avc">This field is required</div>')
+          $(".error").show();
+          error=true;
+          $(document).scrollTop(180);
+        } else {
+          $(this).css('border','1px solid #ccc');
+        }
+      }
+    );
+    if(error === false) {
+      var data = $("#hotel_bank_form").serialize();
+      $.ajax({
+        type: "POST",
+        url: base_url + "hotel/saveBankDetails",
+        data: data,
+        dataType: "json",
+        success: function (response) {
+          $(document).scrollTop(0);
+          $.growlUI('Success!!!', response.message);
+        },
+        error: function () {
+          alert('error handing here');
+        }
+      });
+    }
+  });

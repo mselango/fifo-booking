@@ -59,6 +59,19 @@
                                   <div class="hidden-xs">Rooms</div>
                               </button>
                           </div>
+
+                            <div class="btn-group" role="group">
+                              <button type="button" id="following" class="btn btn-default" href="#tab8" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <div class="hidden-xs">Maps</div>
+                              </button>
+                            </div>
+
+                            <div class="btn-group" role="group">
+                              <button type="button" id="following" class="btn btn-default" href="#tab9" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <div class="hidden-xs">Banks</div>
+                              </button>
+                            </div>
+
                           </div>
 
                         </div>
@@ -88,6 +101,15 @@
                             <div class="tab-pane fade in" id="tab7">
                                 <?php $this->load->view('hotel_admin/includes/rooms.php')?>
                             </div>
+
+                              <div class="tab-pane fade in" id="tab8">
+                                  <?php $this->load->view('hotel_admin/includes/maps.php')?>
+                              </div>
+
+
+                              <div class="tab-pane fade in" id="tab9">
+                                  <?php $this->load->view('hotel_admin/includes/banks.php')?>
+                              </div>
                             </div>
                           </div>
 

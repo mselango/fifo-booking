@@ -114,6 +114,12 @@ class Hotel_model extends CI_Model
         return '';
     }
 
+    public function saveHotelMaps($data)
+    {
+        $this->db->update('fifo_hotel_details', $data, ['hotel_id' => $data['hotel_id']]);
+        return '';
+    }
+
     public function saveUserData($data)
     {
         $role_id = 2;//hotel Admin
@@ -237,6 +243,22 @@ class Hotel_model extends CI_Model
         return $this->db->select('*')->from('fifo_hotel_rooms')->where('id', $roomId)->get()->row_array();
     }
 
+    public function getHotelBanks($hotelId)
+    {
+        return $this->db->select('*')->from('fifo_hotel_banks')->where('hotel_id', $hotelId)->get()->row_array();
+    }
+
+    public function saveBankDetails($data)
+    {
+        $hotelBanks = $this->getHotelBanks($data['hotel_id']);
+        if(!empty($hotelBanks)) {
+            $this->db->update('fifo_hotel_banks', $data, ['hotel_id' => $data['hotel_id']]);
+        }else{
+            $this->db->insert('fifo_hotel_banks', $data);
+        }
+        return '';
+    }
+
     public function getHotelDetails($hotelId)
     {
         return $this->db
@@ -246,7 +268,7 @@ class Hotel_model extends CI_Model
             ->join('fifo_hotel_details','fifo_hotels.id = fifo_hotel_details.hotel_id','left')
             ->join('fifo_states','fifo_states.id = fifo_hotel_details.state','left')
             ->join('fifo_countries','fifo_countries.id = fifo_hotel_details.country','left')
-            ->join('fifo_hotel_contacts','fifo_hotels.id = fifo_hotel_contacts.hotel_id')
+            ->join('fifo_hotel_contacts','fifo_hotels.id = fifo_hotel_contacts.hotel_id','left')
             ->where('fifo_hotels.id', $hotelId)
             ->get()
             ->row_array();
