@@ -174,7 +174,7 @@ class Hotel_model extends CI_Model
             ->select('fifo_hotels.id,fifo_hotels.name,fifo_hotel_contacts.contact_no,fifo_users.user_name,fifo_hotel_details.city')
             ->from('fifo_hotels')
             ->join('fifo_hotel_details','fifo_hotels.id = fifo_hotel_details.hotel_id')
-            ->join('fifo_hotel_contacts','fifo_hotels.id = fifo_hotel_contacts.hotel_id')
+            ->join('fifo_hotel_contacts','fifo_hotels.id = fifo_hotel_contacts.hotel_id','left')
             ->join('fifo_users','fifo_hotels.user_id = fifo_users.id','left')
             ->get()
             ->result_array();
