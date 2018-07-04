@@ -16,6 +16,7 @@
     type: 'post',
     success: function (response) {
       $.growlUI('Success!!!', response.message);
+      $("#hotel_photos_form").load(location.href + " #hotel_photos_form");
     },
     error: function (response) {
       $.growlUI('Error!!!', response.message);
@@ -187,6 +188,7 @@ $( "#amenty_submit" ).click(function( event ) {
                   if(response.success == true) {
                     alert(response.message);
                     $("#close_color_box").click();
+                    $("#load-room-table").click();
                   }
               },
               error: function () {
@@ -225,6 +227,7 @@ $( "#amenty_submit" ).click(function( event ) {
         success: function (response) {
           if(response.success == true) {
             alert(response.message);
+            $("#load-room-table").click();
             $("#close_color_box").click();
           }
         },
@@ -344,3 +347,9 @@ $( "#amenty_submit" ).click(function( event ) {
       });
     }
   });
+
+
+  function hotelRefreshRoom()
+  {
+    $("#room-table").load(location.href + " #room-table");
+  }

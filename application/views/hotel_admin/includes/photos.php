@@ -12,20 +12,16 @@
     <button type="button"  id="upload" class="btn btn-default">Upload</button>
   </div>
   <div class="clearfix"></div>
+
     <?php
-    $dir = !empty($hotel) ? $hotel['image_path'] : '';
-    if($dir) {
-    $hotelName = str_replace(' ','-',$hotel['name']);
-    if (is_dir($dir)) {
-        $handle = opendir($dir);
-        while($file = readdir($handle)){
-            if($file !== '.' && $file !== '..'){
-                $url = base_url().'uploads/'.$hotelName.'/';
-                echo "<img src=".$url.$file." height='150px' width='200px'/><br>";
-            }
+    $dir = !empty($hotel) ? json_decode($hotel['image_path']) : '';
+    if(!empty($dir)) {
+        foreach ($dir as $file) {
+            echo "<img src=".base_url().$file." height='150px' width='200px'/><br>";
         }
-    }
     }
 
     ?>
+
+
 </form>

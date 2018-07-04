@@ -305,7 +305,7 @@ class Hotel_model extends CI_Model
 
     public function saveHotelPhotos($hotelId, $path)
     {
-        $this->db->update('fifo_hotel_details', ['image_path' => $path], ['hotel_id' => $hotelId]);
+        $this->db->update('fifo_hotel_details', ['image_path' => json_encode($path)], ['hotel_id' => $hotelId]);
         return ;
     }
 

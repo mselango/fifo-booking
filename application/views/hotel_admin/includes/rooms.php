@@ -1,6 +1,6 @@
 <div class="">
   <p><a class='youtube' href="<?php echo base_url() ?>/HotelRooms/addRooms/<?php echo !empty($hotel) ? base64_encode($hotel['id']): '';?>">Add New Room</a></p>
-  <table class="table table-bordered">
+  <table class="table table-bordered" id="room-table">
     <tr>
       <td>Room Name</td>
       <td>Description</td>
@@ -24,3 +24,5 @@
     <?php }}?>
   </table>
 </div>
+
+<button type="button"  style="display:none" id="load-room-table" onclick="hotelRefreshRoom()" >test</button>

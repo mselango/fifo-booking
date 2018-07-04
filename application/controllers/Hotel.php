@@ -184,7 +184,16 @@ class Hotel extends CI_Controller {
                 $zip->extractTo($uploadPath);
                 $zip->close();
                 unlink($data['upload_data']['full_path']);
-                $this->hotel_model->saveHotelPhotos($this->input->post('hotel_id'), $uploadPath);
+
+                $Imageurl = [];
+                $handle = opendir($uploadPath);
+                while($file = readdir($handle)){
+                    if($file !== '.' && $file !== '..'){
+                        $Imageurl[] = 'uploads/'.$hotelName.'/'.$file;
+                    }
+                }
+
+                $this->hotel_model->saveHotelPhotos($this->input->post('hotel_id'), $Imageurl);
             }
             echo json_encode(['success' => true, 'message' => 'data saved successfully']);
         } else {
