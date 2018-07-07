@@ -24,7 +24,7 @@
                         </div>
                         <div class="body">
                           <div class="form-group form-float">
-                            <input type="hidden" class="form-control"  name="hotel_id"  value="<?php echo $hotel['id'];?>">
+                              <input type="hidden" class="form-control"  name="hotel_id"  value="<?php echo $hotel['id'];?>">
                             <input type="hidden" class="form-control"  name="hotel_name"  value="<?php echo $hotel['name'];?>">
                           </div>
                             <div class="form-group form-float">

@@ -1,23 +1,10 @@
-<div class="modal-map modal" id="modalMap" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header align-items-center py-2">
-            <h4 class="modal-title"><a class="d-flex align-items-center" href="hotel.html"><i class="icon mr-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.5 22.1"><path d="M0.3,10.3C0.3,10.3,0.3,10.3,0.3,10.3c-0.4,0.5-0.4,1.2,0,1.6l10,10c0,0,0,0,0,0c0.4,0.4,1.1,0.4,1.6,0 c0.4-0.4,0.4-1.1,0-1.6l-8-8h26.6c0.6,0,1.1-0.5,1.1-1.1c0,0,0,0,0,0c0-0.6-0.5-1.1-1.1-1.1H3.8l8-8c0.4-0.4,0.4-1.1,0-1.6 c0,0,0,0,0,0c-0.4-0.4-1.1-0.4-1.6,0L0.3,10.3z"/></svg></i><span class="title">Hotel</span></a></h4>
-            <button class="btn btn-secondary btn--round px-4" type="button" data-dismiss="modal">map close
-            </button>
-          </div>
-          <div class="map-contain" id="map"></div>
-        </div>
-      </div>
-    </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3gFKhVywUkygSxQEBdGVrI5-ZRrdjueA"></script>
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyBze-yY5uhbYpaSSTp52to_Ab97xsbdQVY"></script>
     <script src="<?php echo JS_THEME_URL; ?>maps.js"></script>
     <script src="<?php echo JS_THEME_URL; ?>libs/moment.min.js"></script>
     <script src="<?php echo JS_THEME_URL; ?>libs/wNumb.js"></script>
     <script src="<?php echo JS_THEME_URL; ?>libs/nouislider.min.js"></script>
     <script src="<?php echo JS_THEME_URL; ?>libs/jquery.min.js"></script>
-   <script src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>
-    <script src="<?php echo base_url('assets/js/homeautocomplete.js');?>"></script>
+    <script src="<?php echo JS_THEME_URL; ?>libs/jquery-ui.min.js"></script>
     <script src="<?php echo JS_THEME_URL; ?>libs/barba.min.js"></script>
     <script src="<?php echo JS_THEME_URL; ?>libs/sticky-kit.min.js"></script>
     <script src="<?php echo JS_THEME_URL; ?>libs/velocity.min.js"></script>
@@ -183,7 +170,7 @@ $(document).ready(function(){
 			data = JSON.parse(data);
 			alert(data.success);
 			if(data.success){
-				window.location.href = "<?php echo BASE_URL; ?>;
+				window.location.href = "<?php echo BASE_URL; ?>";
 			}else if(data.error){
 				$('#loginResponse').addClass("failedClass");
 				$('#loginResponse').html(data.error);

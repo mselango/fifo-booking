@@ -42,10 +42,10 @@
 
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="contact[contact_no]"  value="<?php echo set_value("contact[contact_no]");?>">
+                                    <input type="text" class="form-control" name="basic[contact_no]"  value="<?php echo set_value("basic[contact_no]");?>">
                                     <label class="form-label">Contact No</label>
                                 </div>
-                                <div class="error"><?php echo form_error("contact[contact_no]");?></div>
+                                <div class="error"><?php echo form_error("basic[contact_no]");?></div>
 
                             </div>
                             <div class="form-group form-float">

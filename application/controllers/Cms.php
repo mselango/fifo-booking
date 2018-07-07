@@ -60,6 +60,247 @@ class Cms extends CI_Controller {
 		$this->load->view('layout', $data);
 	
 	}
+	
+	public function rebrandmyhotel()
+	{
+		$data=array();
+
+		if(!empty($this->input->post())){
+			$postdata = array('title'=>$this->input->post('title'),'description'=>$this->input->post('description')); 
+			$check_exist = $this->common_model->get_all('cms_rebrandmyhotel');
+			if(count($check_exist) == 0){
+				$postdata['created_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->insert_data('cms_rebrandmyhotel',$postdata);
+			}
+			else{
+				$postdata['updated_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->update_data('cms_rebrandmyhotel','id',$this->input->post('id'),$postdata);	
+			}
+
+			if($result==true)
+			{
+				$this->session->set_flashdata('success', "Updated Data Successfully."); 
+			}else{
+				$this->session->set_flashdata('error', "Updated Data Failed.");
+			}
+
+			redirect('cms/rebrandmyhotel');
+		}
+		else{
+			$data['result'] = $this->common_model->get_all('cms_rebrandmyhotel');
+		}
+
+		$data['content'] = $this->load->view('admin/cms/rebrandmyhotel', $data, true);
+		$this->load->view('layout', $data);
+	
+	}
+	
+	public function franchise()
+	{
+		$data=array();
+
+		if(!empty($this->input->post())){
+			$postdata = array('title'=>$this->input->post('title'),'description'=>$this->input->post('description')); 
+			$check_exist = $this->common_model->get_all('cms_franchise');
+			if(count($check_exist) == 0){
+				$postdata['created_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->insert_data('cms_franchise',$postdata);
+			}
+			else{
+				$postdata['updated_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->update_data('cms_franchise','id',$this->input->post('id'),$postdata);	
+			}
+
+			if($result==true)
+			{
+				$this->session->set_flashdata('success', "Updated Data Successfully."); 
+			}else{
+				$this->session->set_flashdata('error', "Updated Data Failed.");
+			}
+
+			redirect('cms/franchise');
+		}
+		else{
+			$data['result'] = $this->common_model->get_all('cms_franchise');
+		}
+
+		$data['content'] = $this->load->view('admin/cms/franchise', $data, true);
+		$this->load->view('layout', $data);
+	
+	}
+
+
+	public function travelagent()
+	{
+		$data=array();
+
+		if(!empty($this->input->post())){
+			$postdata = array('title'=>$this->input->post('title'),'description'=>$this->input->post('description')); 
+			$check_exist = $this->common_model->get_all('cms_travelagent');
+			if(count($check_exist) == 0){
+				$postdata['created_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->insert_data('cms_travelagent',$postdata);
+			}
+			else{
+				$postdata['updated_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->update_data('cms_travelagent','id',$this->input->post('id'),$postdata);	
+			}
+
+			if($result==true)
+			{
+				$this->session->set_flashdata('success', "Updated Data Successfully."); 
+			}else{
+				$this->session->set_flashdata('error', "Updated Data Failed.");
+			}
+
+			redirect('cms/travelagent');
+		}
+		else{
+			$data['result'] = $this->common_model->get_all('cms_travelagent');
+		}
+
+		$data['content'] = $this->load->view('admin/cms/travelagent', $data, true);
+		$this->load->view('layout', $data);
+	
+	}
+
+
+	public function corporateenquiry()
+	{
+		$data=array();
+
+		if(!empty($this->input->post())){
+			$postdata = array('title'=>$this->input->post('title'),'description'=>$this->input->post('description')); 
+			$check_exist = $this->common_model->get_all('cms_corporateenquiry');
+			if(count($check_exist) == 0){
+				$postdata['created_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->insert_data('cms_corporateenquiry',$postdata);
+			}
+			else{
+				$postdata['updated_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->update_data('cms_corporateenquiry','id',$this->input->post('id'),$postdata);	
+			}
+
+			if($result==true)
+			{
+				$this->session->set_flashdata('success', "Updated Data Successfully."); 
+			}else{
+				$this->session->set_flashdata('error', "Updated Data Failed.");
+			}
+
+			redirect('cms/corporateenquiry');
+		}
+		else{
+			$data['result'] = $this->common_model->get_all('cms_corporateenquiry');
+		}
+
+		$data['content'] = $this->load->view('admin/cms/corporateenquiry', $data, true);
+		$this->load->view('layout', $data);
+	
+	}
+	
+	public function howtomakemyreservation()
+	{
+		$data=array();
+
+		if(!empty($this->input->post())){
+			$postdata = array('title'=>$this->input->post('title'),'description'=>$this->input->post('description')); 
+			$check_exist = $this->common_model->get_all('cms_howtomakemyreservation');
+			if(count($check_exist) == 0){
+				$postdata['created_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->insert_data('cms_howtomakemyreservation',$postdata);
+			}
+			else{
+				$postdata['updated_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->update_data('cms_howtomakemyreservation','id',$this->input->post('id'),$postdata);	
+			}
+
+			if($result==true)
+			{
+				$this->session->set_flashdata('success', "Updated Data Successfully."); 
+			}else{
+				$this->session->set_flashdata('error', "Updated Data Failed.");
+			}
+
+			redirect('cms/howtomakemyreservation');
+		}
+		else{
+			$data['result'] = $this->common_model->get_all('cms_howtomakemyreservation');
+		}
+
+		$data['content'] = $this->load->view('admin/cms/howtomakemyreservation', $data, true);
+		$this->load->view('layout', $data);
+	
+	}
+	
+	public function paymentoptions()
+	{
+		$data=array();
+
+		if(!empty($this->input->post())){
+			$postdata = array('title'=>$this->input->post('title'),'description'=>$this->input->post('description')); 
+			$check_exist = $this->common_model->get_all('cms_paymentoptions');
+			if(count($check_exist) == 0){
+				$postdata['created_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->insert_data('cms_paymentoptions',$postdata);
+			}
+			else{
+				$postdata['updated_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->update_data('cms_paymentoptions','id',$this->input->post('id'),$postdata);	
+			}
+
+			if($result==true)
+			{
+				$this->session->set_flashdata('success', "Updated Data Successfully."); 
+			}else{
+				$this->session->set_flashdata('error', "Updated Data Failed.");
+			}
+
+			redirect('cms/paymentoptions');
+		}
+		else{
+			$data['result'] = $this->common_model->get_all('cms_paymentoptions');
+		}
+
+		$data['content'] = $this->load->view('admin/cms/paymentoptions', $data, true);
+		$this->load->view('layout', $data);
+	
+	}
+	
+	public function bookingtips()
+	{
+		$data=array();
+
+		if(!empty($this->input->post())){
+			$postdata = array('title'=>$this->input->post('title'),'description'=>$this->input->post('description')); 
+			$check_exist = $this->common_model->get_all('cms_bookingtips');
+			if(count($check_exist) == 0){
+				$postdata['created_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->insert_data('cms_bookingtips',$postdata);
+			}
+			else{
+				$postdata['updated_date']=date('Y-m-d H:i:s');
+				$result = $this->common_model->update_data('cms_bookingtips','id',$this->input->post('id'),$postdata);	
+			}
+
+			if($result==true)
+			{
+				$this->session->set_flashdata('success', "Updated Data Successfully."); 
+			}else{
+				$this->session->set_flashdata('error', "Updated Data Failed.");
+			}
+
+			redirect('cms/bookingtips');
+		}
+		else{
+			$data['result'] = $this->common_model->get_all('cms_bookingtips');
+		}
+
+		$data['content'] = $this->load->view('admin/cms/bookingtips', $data, true);
+		$this->load->view('layout', $data);
+	
+	}
+
 
 	public function testimony()
 	{

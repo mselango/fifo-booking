@@ -46,6 +46,7 @@ class User_auth
 	function login($username, $password, $role)
 	{
         $hotelData = '';
+
         if (!is_null($user = $this->ci->login_model->get_user_by_login($username))) {	// login ok
             if (md5($password) == $user->password && $role == $user->role_id) {		// password ok
                 if ($user->status == 0)

@@ -1,5 +1,6 @@
-function mapInit() {
-  var cords = { lat: -34.86, lng: 138.51 };
+ function mapInit(lattitude,longitude) {
+  
+  var cords = { lat:lattitude , lng:longitude  };
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: cords,
@@ -26,4 +27,4 @@ function mapInit() {
   }
 }
 
-google.maps.event.addDomListener(window, 'load', mapInit);
+//google.maps.event.addDomListener(window, 'load', mapInit);

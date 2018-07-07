@@ -8,11 +8,11 @@
           <div class="over"></div>
           <div class="swiper-container js-intro-slider-bg">
             <div class="swiper-wrapper">
-              <div class="swiper-slide"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>intro/item-1.jpg" alt="#"></div>
-              <div class="swiper-slide"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>intro/item-2.jpg" alt="#"></div>
-              <div class="swiper-slide"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>intro/item-3.jpg" alt="#"></div>
-              <div class="swiper-slide"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>intro/item-4.jpg" alt="#"></div>
+<!--               <div class="swiper-slide"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>intro/1505898469banner_01.png" alt="#"></div> -->
               <div class="swiper-slide"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>intro/item-5.jpg" alt="#"></div>
+              <div class="swiper-slide"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>intro/air-banner-big.png" alt="#"></div>
+              <div class="swiper-slide"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>intro/item-4.jpg" alt="#"></div>
+              <div class="swiper-slide"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>intro/1505898946banner_03.png" alt="#"></div>
             </div>
           </div>
         </div>
@@ -98,44 +98,48 @@
                   <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tabFlightHotel" role="tab" aria-controls="tabFlightHotel" aria-selected="true"><span class="d-none d-md-block">Flight &amp; Hotel</span><i class="icon icon-airplane d-md-none mx-1 text-secondary"></i><i class="icon icon-building d-md-none mx-1 text-secondary"></i></a>
                   </li>
                 </ul>-->
-                <div class="tab-content">
+                <div class="tab-content homeTabPane">
                   <div class="tab-pane active show" id="tabHotel" role="tabpanel">
-                    <form class="search-hotels__form" action="<?php echo BASE_URL; ?>searchlists" method="get" data-toggle="validator">
+                    <form class="search-hotels__form" action="<?php echo BASE_URL; ?>searchlists" method="POST" data-toggle="validator">
                       <div class="row">
-                        <div class="form-group col-12 col-md-6 col-lg-4 col-xl-3">
+                        <div class="form-group col-12 col-md-6 col-lg-4 col-xl-12">
                           <label class="label-text">Place or name of the hotel</label>
                           <div class="d-flex"><span class="select-local d-flex"><i class="icon icon-label mr-2 text-secondary"></i>
-<!--                              <select id="mySelect2" class="select2 js-select-locality" name="search_hotel" data-placeholder="Enter here a place or hotel">-->
-<!--                               --><?php //if ($searchData) {
-//                                   foreach ($searchData as $search) {
-//                                       echo "<option value=".$search['name'].">".$search['name']."</option>";
-//                                   }
-//                               }?>
-<!--                              </select></span>-->
+                              <select class="select2 js-select-locality" name="search_hotel" data-placeholder="Enter here a place or hotel">
+                                <option></option>
+                                <?php if(isset($hotellists)): 
+                                 foreach($hotellists as $row):
+                                ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?> (hotel)</option>
+                               <?php endforeach; endif;?>
 
-                            <input type="text" class="form-control" name="search_hotel" id="search" autocomplete="off" >
-                            </span>
+                                <?php if(isset($hotelcitylists)): 
+                                 foreach($hotelcitylists as $row):
+                                ?>
+                                <option value="<?php echo $row['city']; ?>"><?php echo $row['city']; ?>   (city)</option>
+                              <?php endforeach; endif;?>
+                              </select></span>
                           </div>
                         </div>
-                        <div class="form-group col-12 col-md-6 col-lg-4 col-xl-4 d-flex justify-content-center">
-                          <div class="form-group-date text-nowrap text-center">
+                        <div class="form-group col-12 col-md-6 col-lg-4 col-xl-6 d-flex home-hotel-search">
+                          <div class="form-group-date text-nowrap">
                             <div class="d-inline-block">
                               <label class="label-text">Check in date</label>
-                              <div class="input-date-group position-relative"><i class="mr-2 icon icon-calendar text-secondary"></i>
-                                <input class="form-control js-input-date hidden " id="hotelDate1" type="text" name="hotel_from" required="required"/>
-                                <label class="form-control date" for="hotelDate1"></label>
+                              <div class="input-date-group position-relative"><i class="mr-0 icon icon-calendar text-secondary"></i>
+                                <input class="form-control js-input-date" id="hotelDate1" type="text" name="hotel_from" required="required" placeholder="Choose Checkin" />
+                                <!-- <label class="form-control date" for="hotelDate1"></label> -->
                               </div>
-                            </div><i class="bullet mx-4"></i>
+                            </div><i class="bullet mx-2"></i>
                             <div class="d-inline-block">
                               <label class="label-text">Check out date</label>
-                              <div class="input-date-group position-relative"><i class="mr-2 icon icon-calendar text-secondary"></i>
-                                <input class="form-control js-input-date hidden " id="hotelDateTo1" type="text" name="hotel_to" required="required"/>
-                                <label class="form-control date" for="hotelDateTo1"></label>
+                              <div class="input-date-group position-relative"><i class="mr-0 icon icon-calendar text-secondary"></i>
+                                <input class="form-control js-input-date" id="hotelDateTo1" type="text" name="hotel_to" required="required" placeholder="Choose Checkout" />
+                               <!--  <label class="form-control date" for="hotelDateTo1"></label> -->
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="form-group col-12 col-lg-4 col-xl-3 d-flex justify-content-center">
+                        <div class="form-group col-12 col-lg-4 col-xl-3 d-flex home-hotel-search">
                           <div class="mx-2">
                             <label class="label-text">Rooms</label>
                             <div class="qty">
@@ -155,14 +159,14 @@
                             </div>
                           </div>
                         </div>
-                        <div class="form-group col-12 col-xl-2 d-flex">
+                        <div class="form-group col-12 col-xl-2 d-flex mt-3">
                           <button class="btn btn-secondary btn--round align-self-center" type="submit">Search
                           </button>
                         </div>
                       </div>
                     </form>
                   </div>
-                  <div class="tab-pane" id="tabFlight" role="tabpanel">
+                  <!-- <div class="tab-pane" id="tabFlight" role="tabpanel">
                     <form class="search-hotels__form" action="#" method="POST">
                       <div class="row">
                         <div class="col-12 col-xl-6">
@@ -235,8 +239,8 @@
                         </div>
                       </div>
                     </form>
-                  </div>
-                  <div class="tab-pane" id="tabFlightHotel" role="tabpanel">
+                  </div> -->
+                 <!--  <div class="tab-pane" id="tabFlightHotel" role="tabpanel">
                     <form class="search-hotels__form" action="#" method="GET" data-toggle="validator">
                       <div class="row">
                         <div class="col-12 col-sm-12 mb-2">
@@ -349,7 +353,7 @@
                         </div>
                       </div>
                     </form>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -358,111 +362,49 @@
             <div class="container-fluid p-0">
               <div class="swiper-container js-intro-hotels">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="card-intro d-block" style="background-image: url(<?php echo IMAGE_THEME_URL; ?>hotels/item-1.jpg);">
-                      <div class="card-price"><span class="mr-1">from</span><span class="count text-secondary">300$</span></div>
-                      <div class="card-intro__footer">
-                        <h4 class="h4 f-primary">Resort Spa Hotel</h4>
-                        <div class="card-intro__local d-flex align-items-center"><i class="icon icon-label mr-1"></i><span>Thailand</span></div>
-                        <div class="card-intro__rating">
-                          <select class="js-rating-stat" data-current-rating="5">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5" selected="selected">5</option>
-                          </select>
+                  <?php if(isset($cmshotellists)):
+                    foreach($cmshotellists as $row): 
+                      $one = "fa-star-o";
+                      $two = "fa-star-o";
+                      $three = "fa-star-o";
+                      $four = "fa-star-o";
+                      $five = "fa-star-o";
+                      if($row['star_rating'] >= 1){
+                           $one="fa-star";
+                      }
+                      if($row['star_rating'] >= 2){
+                           $two = "fa-star";
+                      }
+                      if($row['star_rating'] >= 3){
+                           $three = "fa-star";
+                      }
+                      if($row['star_rating'] >= 4){
+                           $four = "fa-star";
+                      }
+                      if($row['star_rating'] >= 5){
+                           $five = "fa-star";
+                      }
+                      ?>
+                      <div class="swiper-slide">
+                        <div class="card-intro d-block" style="background-image: url(<?php echo IMAGE_THEME_URL; ?>cmshotels/<?php echo $row['img_url']; ?>);">
+                          <div class="card-price"><span class="mr-1">from</span><span class="count text-secondary"><i class="fa fa-inr"></i> <?php echo $row['discount_price']; ?></span></div>
+                          <div class="card-intro__footer">
+                            <h4 class="h4 f-primary"><i class="icon icon-label mr-1"></i> <?php echo $row['address']; ?></h4>
+                            <div class="card-intro__local d-flex align-items-center"><span><?php echo $row['description']; ?></span></div>
+                            <div class="card-intro__rating">
+                              <span class="fa <?php echo $one; ?>"></span>
+                              <span class="fa <?php echo $two; ?>"></span>
+                              <span class="fa <?php echo $three; ?>"></span>
+                              <span class="fa <?php echo $four; ?>"></span>
+                              <span class="fa <?php echo $five; ?>"></span>
+                            </div>
+                          </div>
+                          <div class="card-hover">
+                            <h3 class="h3 text-uppercase"><?php echo $row['address']; ?></h3><a class="btn btn-light btn--round card-hover__view" href="<?php echo BASE_URL; ?>searchlists">VIEW</a>
+                          </div>
                         </div>
                       </div>
-                      <div class="card-hover">
-                        <h3 class="h3 text-uppercase">Resort Spa Hotel</h3><a class="btn btn-light btn--round card-hover__view" href="<?php echo BASE_URL; ?>searchlists">VIEW</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="card-intro d-block" style="background-image: url(<?php echo IMAGE_THEME_URL; ?>hotels/item-2.jpg);">
-                      <div class="card-price"><span class="mr-1">from</span><span class="count text-secondary">300$</span></div>
-                      <div class="card-intro__footer">
-                        <h4 class="h4 f-primary">Black Pearl</h4>
-                        <div class="card-intro__local d-flex align-items-center"><i class="icon icon-label mr-1"></i><span>Cuba</span></div>
-                        <div class="card-intro__rating">
-                          <select class="js-rating-stat" data-current-rating="4">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4" selected="selected">4</option>
-                            <option value="5">5</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="card-hover">
-                        <h3 class="h3 text-uppercase">Black Pearl</h3><a class="btn btn-light btn--round card-hover__view" href="<?php echo BASE_URL; ?>searchlists">VIEW</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="card-intro d-block" style="background-image: url(<?php echo IMAGE_THEME_URL; ?>hotels/item-3.jpg);">
-                      <div class="card-price"><span class="mr-1">from</span><span class="count text-secondary">300$</span></div>
-                      <div class="card-intro__footer">
-                        <h4 class="h4 f-primary">Marsol</h4>
-                        <div class="card-intro__local d-flex align-items-center"><i class="icon icon-label mr-1"></i><span>Costa Brava, Spain</span></div>
-                        <div class="card-intro__rating">
-                          <select class="js-rating-stat" data-current-rating="4">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4" selected="selected">4</option>
-                            <option value="5">5</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="card-hover">
-                        <h3 class="h3 text-uppercase">Marsol</h3><a class="btn btn-light btn--round card-hover__view" href="<?php echo BASE_URL; ?>searchlists">VIEW</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="card-intro d-block" style="background-image: url(<?php echo IMAGE_THEME_URL; ?>hotels/item-4.jpg);">
-                      <div class="card-price"><span class="mr-1">from</span><span class="count text-secondary">300$</span></div>
-                      <div class="card-intro__footer">
-                        <h4 class="h4 f-primary">Macronissos Village Bungalows</h4>
-                        <div class="card-intro__local d-flex align-items-center"><i class="icon icon-label mr-1"></i><span>Ayia Napa, Cyprus</span></div>
-                        <div class="card-intro__rating">
-                          <select class="js-rating-stat" data-current-rating="4">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4" selected="selected">4</option>
-                            <option value="5">5</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="card-hover">
-                        <h3 class="h3 text-uppercase">Macronissos Village Bungalows</h3><a class="btn btn-light btn--round card-hover__view" href="<?php echo BASE_URL; ?>searchlists">VIEW</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="card-intro d-block" style="background-image: url(<?php echo IMAGE_THEME_URL; ?>hotels/item-5.jpg);">
-                      <div class="card-price"><span class="mr-1">from</span><span class="count text-secondary">300$</span></div>
-                      <div class="card-intro__footer">
-                        <h4 class="h4 f-primary">Iberotel Aquamarine Resort</h4>
-                        <div class="card-intro__local d-flex align-items-center"><i class="icon icon-label mr-1"></i><span>Hurghada, Egypt</span></div>
-                        <div class="card-intro__rating">
-                          <select class="js-rating-stat" data-current-rating="4">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4" selected="selected">4</option>
-                            <option value="5">5</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="card-hover">
-                        <h3 class="h3 text-uppercase">Iberotel Aquamarine Resort</h3><a class="btn btn-light btn--round card-hover__view" href="<?php echo BASE_URL; ?>searchlists">VIEW</a>
-                      </div>
-                    </div>
-                  </div>
+                <?php endforeach; endif;?>
                 </div>
               </div>
               <div class="intro__hotels-controls">

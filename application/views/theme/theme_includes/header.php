@@ -19,6 +19,20 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Your Travel World">
     <link rel="apple-touch-icon" href="<?php echo IMAGE_THEME_URL; ?>touch/apple-touch-icon.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo IMAGE_THEME_URL; ?>favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo IMAGE_THEME_URL; ?>favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo IMAGE_THEME_URL; ?>favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo IMAGE_THEME_URL; ?>favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo IMAGE_THEME_URL; ?>favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo IMAGE_THEME_URL; ?>favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo IMAGE_THEME_URL; ?>favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo IMAGE_THEME_URL; ?>favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo IMAGE_THEME_URL; ?>favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo IMAGE_THEME_URL; ?>favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo IMAGE_THEME_URL; ?>favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo IMAGE_THEME_URL; ?>favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo IMAGE_THEME_URL; ?>favicon/favicon-16x16.png">
     <!-- Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,500,600,700%7CPoppins:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo CSS_THEME_URL; ?>jquery-ui.structure.min.css">
@@ -35,12 +49,7 @@
     <link rel="stylesheet" href="<?php echo CSS_THEME_URL; ?>blueimp-gallery.min.css">
     <link rel="stylesheet" href="<?php echo CUSTOM_THEME_URL; ?>style.min.css">
     <link id="cssTheme" rel="stylesheet" href="<?php echo SKINS_THEME_URL; ?>style-orange.css">
-	  <link rel="stylesheet" href="<?php echo CUSTOM_THEME_URL; ?>custom-styles.css">
-    <script>var base_url = '<?php echo base_url() ?>';</script>
-    <link href="<?php echo ASSETS_URL; ?>css/autocomplete.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php echo CSS_THEME_URL; ?>autocomplete.css">
-
-
+	<link rel="stylesheet" href="<?php echo CUSTOM_THEME_URL; ?>custom-styles.css">
   </head>
   <body class="load">
     <div class="progress-load js-progress-load"></div>
@@ -202,10 +211,10 @@
             <div class="row justify-content-center justify-content-between">
               <div class="col-12 col-md col-lg-3 d-flex justify-content-center justify-content-md-start"><a class="navbar-logo d-inline-flex align-items-center" href="<?php echo BASE_URL; ?>"><img class="img-fluid mr-3 logo-size" src="<?php echo IMAGE_THEME_URL; ?>logo.png" alt="FIFO BOOKING.COM"/>
                   <!-- <h4 class="m-0">Your Travel World</h4> --></a></div>
-              <div class="col col-lg-6 d-none d-md-flex align-items-center justify-content-center"><a class="page-header__call d-flex align-items-center text-nowrap" href="tel:880000112222333"><i class="icon icon-call js-tooltip-call mr-3" data-toggle="tooltip" data-placement="bottom" title="Support 8-800-0011-2222-333"></i>
+              <div class="col col-lg-6 d-none d-md-flex align-items-center justify-content-center"><a class="page-header__call d-flex align-items-center text-nowrap" href="tel:0427-4972973"><i class="icon icon-call js-tooltip-call mr-3" data-toggle="tooltip" data-placement="bottom" title="Support 0427-4972973"></i>
                   <div class="page-header__call-right">
                     <div class="title fz-small">Support</div>
-                    <div class="phone fw-bold">8-800-0011-2222-333</div>
+                    <div class="phone fw-bold">0427-4972973</div>
                   </div></a>
                 <div class="page-header__top-search d-none d-lg-block ml-4" id="navbarSearch">
                   <form class="navbar-search" action="#" method="GET">
@@ -269,88 +278,12 @@
               </ul>
             </div>
             <ul class="main-nav__list nav d-flex" id="navMenu">
-              <li class="nav-item dropdown"><a class="nav-link fw-bold text-uppercase" href="#"><span>home</span><i class="caret fa fa-angle-down ml-2"></i></a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="index.html"><span>Home</span></a>
-                  </li>
-                  <li class="nav-item"><a class="nav-link" href="index-account.html"><span>Home Login</span></a>
-                  </li>
-                  <li class="nav-item"><a class="nav-link" href="index-video.html"><span>Home Video</span></a>
-                  </li>
-                </ul>
+
+              <li class="nav-item"><a class="nav-link fw-bold text-uppercase <?php if(isset($result) && $result=="hotel") echo "nav-active";?>" href="<?php echo BASE_URL; ?>"><i class="fa fa-hotel fa-menu-icon-hotel-class"></i><br><span>Hotels</span></a>
               </li>
-              <li class="nav-item"><a class="nav-link fw-bold text-uppercase" href="hotel.html"><span>Hotel</span></a>
+              <li class="nav-item"><a class="nav-link fw-bold text-uppercase <?php if(isset($result) && $result=="homestay") echo "nav-active";?>" href="<?php echo BASE_URL; ?>homestays"><i class="fa fa-home fa-menu-icon-homestay-class"></i><br><span>Home Stays</span></a>
               </li>
-              <li class="nav-item"><a class="nav-link fw-bold text-uppercase" href="flights.html"><span>flights</span></a>
-              </li>
-              <li class="nav-item"><a class="nav-link fw-bold text-uppercase" href="category.html"><span>best seller</span></a>
-              </li>
-              <li class="nav-item"><a class="nav-link fw-bold text-uppercase" href="category.html"><span>hot deals</span></a>
-              </li>
-              <li class="nav-item"><a class="nav-link fw-bold text-uppercase" href="category.html"><span>air tickets</span></a>
-              </li>
-              <li class="nav-item"><a class="nav-link fw-bold text-uppercase" href="category.html"><span>rent a car</span></a>
-              </li>
-              <li class="nav-item"><a class="nav-link fw-bold text-uppercase" href="<?php echo BASE_URL; ?>aboutus"><span>about us</span></a>
-              </li>
-              <li class="nav-item dropdown"><a class="nav-link fw-bold text-uppercase" href="#"><span>pages</span><i class="caret fa fa-angle-down ml-2"></i></a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item dropdown"><a class="nav-link" href="#"><span>Home</span><i class="caret fa fa-angle-down ml-2"></i></a>
-                    <ul class="dropdown-menu">
-                      <li class="nav-item"><a class="nav-link" href="index.html"><span>Home</span></a>
-                      </li>
-                      <li class="nav-item"><a class="nav-link" href="index-account.html"><span>Home Login</span></a>
-                      </li>
-                      <li class="nav-item"><a class="nav-link" href="index-video.html"><span>Home Video</span></a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item"><a class="nav-link" href="category.html"><span>Category</span></a>
-                  </li>
-                  <li class="nav-item dropdown"><a class="nav-link" href="#"><span>Blog</span><i class="caret fa fa-angle-down ml-2"></i></a>
-                    <ul class="dropdown-menu">
-                      <li class="nav-item"><a class="nav-link" href="blog-list.html"><span>Blog List</span></a>
-                      </li>
-                      <li class="nav-item"><a class="nav-link" href="blog-post.html"><span>Blog Post</span></a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown"><a class="nav-link" href="#"><span>Hotel</span><i class="caret fa fa-angle-down ml-2"></i></a>
-                    <ul class="dropdown-menu">
-                      <li class="nav-item"><a class="nav-link" href="hotel.html"><span>Hotel</span></a>
-                      </li>
-                      <li class="nav-item"><a class="nav-link" href="hotel-services.html"><span>Hotel Services</span></a>
-                      </li>
-                      <li class="nav-item"><a class="nav-link" href="hotel-accommodation.html"><span>Hotel Accommodation</span></a>
-                      </li>
-                      <li class="nav-item"><a class="nav-link" href="hotel-reviews.html"><span>Hotel Reviews</span></a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item"><a class="nav-link" href="flights.html"><span>Flights</span></a>
-                  </li>
-                  <li class="nav-item dropdown"><a class="nav-link" href="#"><span>Booking</span><i class="caret fa fa-angle-down ml-2"></i></a>
-                    <ul class="dropdown-menu">
-                      <li class="nav-item"><a class="nav-link" href="booking-traveler.html"><span>Traveler</span></a>
-                      </li>
-                      <li class="nav-item"><a class="nav-link" href="booking-payment.html"><span>Payment</span></a>
-                      </li>
-                      <li class="nav-item"><a class="nav-link" href="booking-confirm.html"><span>Confirmation</span></a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL; ?>aboutus"><span>About us</span></a>
-                  </li>
-                  <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL; ?>contactus"><span>Contacts</span></a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item"><a class="nav-link fw-bold text-uppercase" href="blog-list.html"><span>news</span></a>
-              </li>
-              <li class="nav-item"><a class="nav-link fw-bold text-uppercase" href="<?php echo BASE_URL; ?>contactus"><span>contacts</span></a>
-              </li>
-              <li class="nav-item"><a class="nav-link fw-bold text-uppercase" href="shortcodes.html"><span>Shortcodes</span></a>
-              </li>
+
             </ul>
           </div>
         </div>

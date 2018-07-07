@@ -13,7 +13,8 @@ class Common_model extends CI_Model {
 	//Function to insert 
 	function insert_data($table_name,$data)
 	{
-		if($this->db->insert($table_name,$data))	
+		if($this->db->insert($table_name,$data))
+	
 			
 			return $this->db->insert_id();
 			
@@ -186,13 +187,15 @@ class Common_model extends CI_Model {
 				$this->db->where($key,$val);	
 		}
 		
-		$query = $this->db->get($table_name);	
+		$query = $this->db->get($table_name);
+
+        //echo $this->db->last_query();			
 		
-		if($query->num_rows()==1)
-		
-			return FALSE;
-			
-		return TRUE;
+		if($query->num_rows()>0){
+			return $query->result();
+		}else{
+			return $query->result();
+		}
 	}
 	function get_permission($table_name,$where)
 	{
@@ -339,6 +342,18 @@ class Common_model extends CI_Model {
 		}
 		return array();
     }
+
+    /**
+	* Inner join query result
+	*/
+    public function getHotelsForSearch($tableOne,$tableTwo,$columnOne,$valueOne,$joinOne,$joinTwo){
+    	 return $this->db->select('*')
+	     ->from($tableOne.' as t1')
+	     ->where('t1.'.$columnOne, $valueOne)
+	     ->join($tableTwo.' as t2', 't1.'.$joinOne.'= t2.'.$joinTwo, 'INNER')
+	     ->get()
+	     ->result_array();
+    }
 	
 	/**
 	* custom query count
@@ -349,6 +364,61 @@ class Common_model extends CI_Model {
         $query = $this->db->query($qry);
 		return $query->num_rows();
     }
+
+    /**
+    * get Distinct value
+    */
+
+    public function getDistinctQuery($tableName,$columnName){
+    	$this->db->select($columnName);
+        $this->db->distinct();
+        $query = $this->db->get($tableName);
+
+        if ($query->num_rows()>0) 
+		{
+			return $query->result_array(); 
+		}
+		return array();
+    }
+	
+	/**
+	* Home login method
+	*/
+	
+	public function login_validate($username, $password, $customertable){
+		
+		$this->db->select('*');
+		
+		$this->db->where('email_id', $username);
+		
+		$this->db->where('password',$password);
+		
+		$query = $this->db->get($customertable);
+
+        //echo $this->db->last_query();		
+		
+	    // Let's check if there are any results
+        if($query->num_rows() == 1){
+            // If there is a user, then create session data
+            $row = $query->row();
+            $data = array(
+                    'customer_id' => $row->customer_id,
+                    'email_id' => $row->email_id,
+                    'terms_conditions' => $row->terms_conditions,
+                    'special_offers' => $row->special_offers,
+                    'validated' => true
+                    );
+            $this->session->set_userdata($data);
+            return true;
+        }else{
+			// If the previous process did not validate
+			// then return false.
+			return false;	
+		}
+	
+	}
+	
+	
 }
 
 /* End of file common_model.php */

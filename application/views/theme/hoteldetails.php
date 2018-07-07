@@ -2,15 +2,45 @@
 
 <?php $this->load->view('theme/theme_includes/header.php')?>
 
+<?php //echo "<pre>"; print_r($fifo_Hotels); echo"<pre>";exit();
+
+
+$one = "fa-star-o";
+$two = "fa-star-o";
+$three = "fa-star-o";
+$four = "fa-star-o";
+$five = "fa-star-o";
+
+if(isset($fifo_Hotels_Details)){
+  if($fifo_Hotels_Details['rating'] >= 1){
+     $one="fa-star";
+  }
+  if($fifo_Hotels_Details['rating'] >= 2){
+       $two = "fa-star";
+  }
+  if($fifo_Hotels_Details['rating'] >= 3){
+       $three = "fa-star";
+  }
+  if($fifo_Hotels_Details['rating'] >= 4){
+       $four = "fa-star";
+  }
+  if($fifo_Hotels_Details['rating'] >= 5){
+       $five = "fa-star";
+  }
+}
+
+
+?>
+
  <main class="page-main">
       <nav class="breadcrumb-nav d-flex align-items-center" aria-label="breadcrumb">
         <div class="container">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a class="under" href="index.html">Home</a></li>
-            <li class="breadcrumb-item"><a class="under" href="category.html">Hotels</a></li>
+            <li class="breadcrumb-item"><a class="under" href="<?php echo BASE_URL; ?>">Home</a></li>
+<!--             <li class="breadcrumb-item"><a class="under" href="category.html">Hotels</a></li>
             <li class="breadcrumb-item"><a class="under" href="category.html">Spain</a></li>
-            <li class="breadcrumb-item"><a class="under" href="category.html">Costa Brava</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><span>Ravenna Best Hotel</span></li>
+            <li class="breadcrumb-item"><a class="under" href="category.html">Costa Brava</a></li> -->
+            <li class="breadcrumb-item active" aria-current="page"><span><?php echo $fifo_Hotels['name']; ?></span></li>
           </ol>
         </div>
       </nav>
@@ -20,8 +50,9 @@
             <aside class="sidebar col-lg-3">
               <div class="sidebar__content js-sticky-top">
                 <div class="sidebar__finder card bg-primary text-white">
-                  <h4 class="m-0 mb-lg-4">Search for hotels</h4>
-                  <form class="collapse show d-lg-block mt-3" id="hotelFinder" action="#" method="POST" data-toggle="validator">
+                  <h4 class="m-0 search-hotels">Search for hotels</h4>
+                  <div id="search-Left-hotels" class="hideDiv mt-1">
+                  <form class="collapse show d-lg-block mt-3n" id="hotelFinder" action="#" method="POST" data-toggle="validator">
                     <div class="row">
                       <div class="col-12 form-group">
                         <label class="label">Place or name of the hotel / city</label><span class="form-select">
@@ -94,6 +125,7 @@
                     <button class="btn btn-secondary btn--round mx-auto mt-2 w-100" type="submit">search
                     </button>
                   </form>
+                </div>
                 </div>
                 <button class="btn-toggle btn btn-primary-light border-0 w-100 py-3 d-lg-none" data-target="#hotelFinder" data-toggle="collapse" aria-expanded="true" type="button"><span class="icon-bar"></span></button>
                 <div class="card d-none d-lg-flex">
@@ -218,75 +250,65 @@
                 <div class="tab-content">
                   <div class="tab-pane active show" id="hotel" role="tabpanel">
                     <section>
-                      <h3 class="fw-md mb-1"><?php echo $hotel['name'];?></h3>
+                      <h3 class="fw-md mb-1"><?php echo $fifo_Hotels['name']; ?></h3>
                       <ul class="hotel-title mb-3">
                         <li class="stars mb-2">
-                          <div class="rating">
-                            <select class="js-rating-stat" data-current-rating="5">
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5" selected="selected">5</option>
-                            </select>
+                         <div class="product__rating mb-2">
+                            <div class="rating">
+                              <div class="card-intro__rating">
+                                  <span class="fa <?php echo $one; ?>"></span>
+                                  <span class="fa <?php echo $two; ?>"></span>
+                                  <span class="fa <?php echo $three; ?>"></span>
+                                  <span class="fa <?php echo $four; ?>"></span>
+                                  <span class="fa <?php echo $five; ?>"></span>
+                                </div>
+                            </div>
                           </div>
                         </li>
                         <li class="d-flex">
                           <div class="media-object"><i class="icon icon-label mr-2 text-primary"></i></div>
-                          <div class="local"><span>
-                              <?php echo $hotel['address1'];?>
-                              <?php echo $hotel['state_name'];?>
-                              <?php echo $hotel['country'];?>
-                              <?php echo $hotel['postal_code'];?>
-
-                            </span><i class="bullet mx-2"></i><a href="#modalMap" data-toggle="modal"
-                                                                 data-title="<?php echo $hotel['name'];?>">Show on map</a></div>
+                          <div class="local"><span><?php echo $fifo_Hotels_Details['address1']; ?></span><i class="bullet mx-2"></i><a href="#modalMap" data-toggle="modal" data-latitude="<?php echo $fifo_Hotels_Details['latitude']; ?>" data-longitude="<?php echo $fifo_Hotels_Details['longitude']; ?>" data-title="<?php echo $fifo_Hotels['name']; ?>">Show on map</a></div>
                         </li>
                       </ul>
                       <div class="hotel-gallery">
                         <div class="hotel-gallery__carousel swiper-container js-hotel-carousel">
                           <div class="swiper-wrapper">
-
-                              <?php
-
-                              $dir = $hotel['image_path'];
-                              $hotelName = str_replace(' ','-',$hotel['name']);
-                              if (is_dir($dir)) {
-                                  $handle = opendir($dir);
-                                  $c=0;
-                                  while($file = readdir($handle)){
-                                      if ($file !== '.' && $file !== '..') {
-                                              $url = base_url() . 'uploads/' . $hotelName . '/';
-                                              ?>
-                                        <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo $url . $file; ?>" alt="#"/>
-                                        </div>
-                                              <?php
-                                      }
-                                  }
-
-                              }?>
-
+                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/1.jpg" alt="#"/>
+                            </div>
+                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/2.jpg" alt="#"/>
+                            </div>
+                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/3.jpg" alt="#"/>
+                            </div>
+                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/4.jpg" alt="#"/>
+                            </div>
+                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/5.jpg" alt="#"/>
+                            </div>
+                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/6.jpg" alt="#"/>
+                            </div>
+                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/7.jpg" alt="#"/>
+                            </div>
+                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/8.jpg" alt="#"/>
+                            </div>
+                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/9.jpg" alt="#"/>
+                            </div>
+                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/10.jpg" alt="#"/>
+                            </div>
                           </div>
                           <div class="hotel-gallery__controls"><a class="hotel-gallery__arrow shadow-sm js-prev" role="button"><i class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 44 44"><path d="M22.119 44.237C9.922 44.237 0 34.315 0 22.119S9.922.001 22.119.001s22.119 9.922 22.119 22.118-9.924 22.118-22.119 22.118zm0-42.736C10.75 1.501 1.5 10.75 1.5 22.119c0 11.368 9.25 20.618 20.619 20.618s20.619-9.25 20.619-20.618c0-11.369-9.25-20.618-20.619-20.618z"/><path d="M24.667 29.884a.74.74 0 0 1-.53-.22l-7.328-7.334a.752.752 0 0 1 0-1.061l7.328-7.333a.75.75 0 1 1 1.061 1.061L18.4 21.8l6.798 6.805a.752.752 0 0 1 0 1.061.75.75 0 0 1-.531.218z"/></svg></i></a><a class="hotel-gallery__arrow shadow-sm js-next" role="button"><i class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 44 44"><path d="M22.118 44.236C9.922 44.236 0 34.314 0 22.118S9.922 0 22.118 0s22.118 9.922 22.118 22.118-9.922 22.118-22.118 22.118zm0-42.736C10.75 1.5 1.5 10.749 1.5 22.118c0 11.368 9.25 20.618 20.618 20.618 11.37 0 20.618-9.25 20.618-20.618 0-11.369-9.248-20.618-20.618-20.618z"/><path d="M19.341 29.884a.75.75 0 0 1-.53-1.281l6.796-6.804-6.796-6.803a.75.75 0 1 1 1.061-1.061l7.325 7.333a.75.75 0 0 1 0 1.061l-7.325 7.333a.742.742 0 0 1-.531.222z"/></svg></i></a></div>
                         </div>
                         <div class="hotel-gallery__thumbs swiper-container js-hotel-carousel-thumbs">
                           <div class="swiper-wrapper">
-                              <?php
-                               $handle = opendir($dir);
-                               while($file = readdir($handle)){
-                                      if ($file !== '.' && $file !== '..') {
-                                              $url = base_url() . 'uploads/' . $hotelName . '/';
-                              ?>
-                            <div class="swiper-slide">
-                              <a class="hotel-gallery__thumb js-gallery-link" href="<?php echo $url . $file; ?>">
-                                <img class="img-cover" src="<?php echo $url . $file; ?>" alt="#"/>
-                              </a>
-                              </div>
-                              <?php
-                              }
-
-                              }?>
-                            </div>
+                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/1.jpg" data-description="Joshua Tree Homesteader Cabin"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/1.jpg" alt="#"/></a></div>
+                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/2.jpg" data-description="A perfect place to snuggle up after a fun day in Asheville!"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/2.jpg" alt="#"/></a></div>
+                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/3.jpg" data-description="A perfect place to snuggle up after a fun day in Asheville!"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/3.jpg" alt="#"/></a></div>
+                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/4.jpg" data-description="Underfloor heating in the bathroom floor to keep your toes warm!"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/4.jpg" alt="#"/></a></div>
+                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/5.jpg" data-description="Full kitchen with full size refrigerator and dining table"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/5.jpg" alt="#"/></a></div>
+                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/6.jpg" data-description="The combination living room and kitchen includes a dining table."><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/6.jpg" alt="#"/></a></div>
+                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/7.jpg" data-description="You'll know you've arrived when you reach the driveway gate."><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/7.jpg" alt="#"/></a></div>
+                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/8.jpg" data-description="Stone walls and steps compliment the garden area behind the brick patio"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/8.jpg" alt="#"/></a></div>
+                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/9.jpg" data-description="Custom-tiled shower, big enough for two people!"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/9.jpg" alt="#"/></a></div>
+                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/10.jpg" data-description="View of the backyard parking area as seen from the upstairs unit deck. There is one parking space per unit (one for upstairs, one for downstairs, and one for us in the tiny house in the back!)"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/10.jpg" alt="#"/></a></div>
+                          </div>
                         </div>
                       </div>
                       <hr>
@@ -294,21 +316,18 @@
                         <div class="col-12 col-md-8 d-flex">
                           <div class="hotel__intro hotel-card w-100">
                             <section class="pb-4">
-<!--                              <h5 class="d-flex align-items-center text-primary mb-3"><i class="icon icon-badge mr-2"></i>One of the best hotels in Milan by customer recall</h5>-->
-                            <?php echo $hotel['description'];?>
+                              <h5 class="d-flex align-items-center text-primary mb-3"><i class="icon icon-badge mr-2"></i>One of the best hotel in <?php echo $fifo_Hotels_Details['city'];  ?></h5>
+                              <p><?php echo $fifo_Hotels['description'];  ?></p>
                             </section>
                             <section>
                               <h5>Popular services in the hotel</h5>
                               <ul class="hotel-facilities d-flex flex-wrap flex-column flex-md-row">
-                                <?php if(!empty($amenties)) {
-                                  foreach($amenties as $amenty) {
-                                ?>
-                                <li class="mr-2">
-                                  <span class="align-middle mr-2"><?php echo $amenty['name'];?></span>
-                                  <i class="bullet d-none d-md-inline-block"></i>
-                                </li>
-<?php }}?>
-                                 </ul>
+                                <li class="mr-2"><i class="align-middle icon text-secondary icon-wifi mr-2"></i><span class="align-middle mr-2">Wi-Fi</span><i class="bullet d-none d-md-inline-block"></i></li>
+                                <li class="mr-2"><i class="align-middle icon text-secondary icon-24-hours mr-2"></i><span class="align-middle mr-2">24-hour front desk</span><i class="bullet d-none d-md-inline-block"></i></li>
+                                <li class="mr-2"><i class="align-middle icon text-secondary icon-freezer mr-2"></i><span class="align-middle mr-2">Air conditioning</span><i class="bullet d-none d-md-inline-block"></i></li>
+                                <li class="mr-2"><i class="align-middle icon text-secondary icon-food mr-2"></i><span class="align-middle mr-2">Food and beverage delivery to the room</span><i class="bullet d-none d-md-inline-block"></i></li>
+                                <li class="mr-2"><i class="align-middle icon text-secondary icon-parking mr-2"></i><span class="align-middle mr-2">Free parking</span><i class="bullet d-none d-md-inline-block"></i></li>
+                              </ul>
                             </section>
                           </div>
                         </div>
@@ -443,36 +462,49 @@
                         </div>
                         <div class="row">
                           <div class="col-12 col-md-8 order-1 order-md-0">
-                            <?php if(!empty($rooms)) {
-                              foreach ($rooms as $room) {?>
+                            <?php if(isset($fifo_Hotels_Rooms)): foreach($fifo_Hotels_Rooms as $row): ?>
                             <div class="hotel-package mb-4">
                               <div class="hotel-package__row row mb-4">
                                 <div class="col-6 pr-md-1"><a class="hotel-package__img d-block" href="#"><img class="img-fluid" src="<?php echo IMAGE_THEME_URL; ?>hotels/item-15.jpg" alt="#"/></a></div>
                                 <div class="col-6">
-                                  <h4 class="hotel-package__title d-inline-block"><?php echo $room['room_name'];?></h4>
+                                  <h4 class="hotel-package__title d-inline-block"><?php echo $row['room_name']; ?></h4>
                                   <ul class="hotel-package__props">
-                                    <li class="mb-2 rooms"><span class="title mr-1">Rooms:</span><span class="form-select form-select--sm">
+                                    <!-- <li class="mb-2 rooms"><span class="title mr-1">Rooms:</span><span class="form-select form-select--sm">
                                         <select class="form-control select2 js-form-select">
                                           <option value="rooms 1">1</option>
                                           <option value="rooms 2">2</option>
                                           <option value="rooms 3">3</option>
                                         </select></span>
+                                    </li> -->
+                                    <li class="mb-2 price"><span class="title mr-2">Price per night:</span><span class="d-inline-block pointer point-fade sale" data-toggle="popover" data-content="And here's some amazing content.
+                    It's very engaging. Right?" data-trigger="hover" data-placement="bottom"><i class="fa fa-rupee mr-1"></i> <?php echo $row['actual_price']; ?>  <i class="hint" data-title="?"></i></span><span class="cost fw-bold"><i class="fa fa-rupee mr-1"></i> <?php echo $row['discount_price']; ?></span>
                                     </li>
-                                    <li class="mb-2 price"><span class="title mr-2">Price for 13 nights:</span><span class="d-inline-block pointer point-fade sale" data-toggle="popover" data-content="And here's some amazing content.
-                    It's very engaging. Right?" data-trigger="hover" data-placement="bottom"><?php echo $room['actual_price'];?>  <i class="hint" data-title="?"></i></span><span class="cost fw-bold"><?php echo $room['discount_price'];?></span>
+                                    <li class="mb-2 prepayment"><span class="title mr-1">Prepayment:</span><span class="fw-bold">30%</span></li>
+                                    <li class="mb-2 guests"><span class="title mr-1">Max Adults:</span>
+                                      <span>
+                                        <?php for($i=0;$i<$row['max_adults'];$i++) { ?>
+                                         <i class="icon icon-user mr-1"></i>
+                                        <?php } ?>
+                                     </span>
                                     </li>
-<!--                                    <li class="mb-2 prepayment"><span class="title mr-1">Prepayment:</span><span class="fw-bold">30%</span></li>-->
-                                    <li class="mb-2 guests"><span class="title mr-1">Max guests:</span><span>
-                                        <?php for($i=1; $i<=$room['no_of_people']; $i++){?>
-                                        <i class="icon icon-user mr-1"></i>
-                                        <?php }?>
 
-                                      </span></li>
+                                    <li class="mb-2 guests"><span class="title mr-1">Max Childs:</span>
+                                      <span>
+                                         <?php for($i=0;$i<$row['max_child'];$i++) { ?>
+                                           <i class="fa fa-child"></i>
+                                          <?php } ?>
+                                     </span>
+                                    </li>
+
+                                    <li> <p class="mb-2">
+                                      <a id="selected-room-<?php echo $row['hotel_id'].$row['id']; ?>" class="btn btn-secondary selected-room" onclick="selectedRoom(<?php echo $row['id']; ?>,<?php echo $row['hotel_id']; ?>);" bookingtraveller" role="button">Select Room</a>
+                                       </p>
+                                    </li>
+
                                   </ul>
                                   <button class="btn-more fw-bold text-primary pointer point-fade js-hotel-show-more" type="button">More info +</button>
                                 </div>
                               </div>
-                              <?php }}?>
                               <div class="collapse js-addition">
                                 <div class="hotel-package__more">
                                   <p class="mb-2">The room has 1 single bed and 1 extra large double bed</p>
@@ -505,7 +537,10 @@
                               </div>
                               <hr class="hr-bottom my-0">
                             </div>
+                            
+                            <?php endforeach; endif;  ?>
 
+                           
                           </div>
                           <div class="col-12 col-md-4 hotel-items__check">
                             <div class="py-3 js-sticky-top">
@@ -514,7 +549,7 @@
                                 <li class="price">3 976 €</li>
                                 <li>You are lucky! Today, this room has a special price!</li>
                               </ul>
-                              <p class="mb-2"><a class="btn btn-secondary btn--round btn-order" href="<?php echo BASE_URL; ?>bookingtraveller" role="button">book now</a>
+                              <p class="mb-2"><a class="btn btn-secondary btn--round btn-order booked-room disabled" href="<?php echo BASE_URL; ?>bookingtraveller" role="button">book now</a>
                               </p>
                               <p>This is your fourth trip. Book 1 more trip and get a 10% discount!</p>
                             </div>
@@ -836,6 +871,7 @@
                       <h3>Popular hotels in the area</h3>
                       <hr class="mb-4">
                       <div class="row">
+                        
                         <div class="col-12 d-flex mb-4 pb-2">
                           <div class="product bg-white product--list">
                             <div class="product__special bg-primary text-white">special price
@@ -1731,6 +1767,54 @@
       </div>
     </main>
 
+    <div class="modal-map modal" id="modalMap" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header align-items-center py-2">
+            <h4 class="modal-title"><a class="d-flex align-items-center" href="<?php echo BASE_URL; ?>hoteldetails/<?php echo $fifo_Hotels['id']; ?>"><i class="icon mr-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.5 22.1"><path d="M0.3,10.3C0.3,10.3,0.3,10.3,0.3,10.3c-0.4,0.5-0.4,1.2,0,1.6l10,10c0,0,0,0,0,0c0.4,0.4,1.1,0.4,1.6,0 c0.4-0.4,0.4-1.1,0-1.6l-8-8h26.6c0.6,0,1.1-0.5,1.1-1.1c0,0,0,0,0,0c0-0.6-0.5-1.1-1.1-1.1H3.8l8-8c0.4-0.4,0.4-1.1,0-1.6 c0,0,0,0,0,0c-0.4-0.4-1.1-0.4-1.6,0L0.3,10.3z"/></svg></i><span class="title">Hotel</span></a></h4>
+            <button class="btn btn-secondary btn--round px-4" type="button" data-dismiss="modal">map close
+            </button>
+          </div>
+          <div class="map-contain" id="map"></div>
+        </div>
+      </div>
+    </div>
+
 <?php $this->load->view('theme/theme_includes/footer.php')?>
 
 <?php $this->load->view('theme/theme_includes/footer_scripts.php')?>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".search-hotels").click(function(e){
+      e.preventDefault();
+      if ($("#search-Left-hotels").hasClass("hideDiv")) {
+        $("#search-Left-hotels").toggle();
+        $("#search-Left-hotels").removeClass("hideDiv");
+      }else{
+        $("#search-Left-hotels").toggle();
+      }
+    })
+
+     $("#modalMap").on("show.bs.modal", function(e) {
+        var t = $(e.relatedTarget),
+            o = t.data("title"),
+            n = $(this),
+            lat = parseFloat(t.data("latitude"))
+            long = parseFloat(t.data("longitude"));
+        n.find(".modal-title .title").text(o);
+        mapInit(lat,long);
+    })
+  });
+
+  function selectedRoom(roomId,hotelId){
+      $(".selected-room-added").addClass("selected-room");
+      $(".selected-room").removeClass("selected-room-added");
+      $("#selected-room-"+hotelId+roomId).addClass("disabled");
+      $("#selected-room-"+hotelId+roomId).text("Selected Room");
+      $("#selected-room-"+hotelId+roomId).removeClass("selected-room");
+      $("#selected-room-"+hotelId+roomId).addClass("selected-room-added");
+      $(".booked-room").removeClass("disabled");
+  }
+
+</script>

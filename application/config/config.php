@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
@@ -29,6 +28,7 @@ $site_path .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_
 $config['base_url']	= $site_path;
 
 define('BASE_URL', $config['base_url']);
+/*Admin assets */
 define('CSS_URL', $config['base_url'].'assets/admin/css/');
 define('IMAGE_URL', $config['base_url'].'assets/admin/images/');
 define('JS_URL', $config['base_url'].'assets/admin/js/');
@@ -37,7 +37,6 @@ define('PLUGINS_URL', $config['base_url'].'assets/admin/plugins/');
 define('UPLOAD_URL', $config['base_url'].'assets/uploads/');
 define('ASSETS_URL', $config['base_url'].'assets/');
 
-
 /*Theme assets*/
 define('CSS_THEME_URL', $config['base_url'].'assets/theme/css/');
 define('FONT_THEME_URL', $config['base_url'].'assets/theme/fonts/');
@@ -45,7 +44,6 @@ define('IMAGE_THEME_URL', $config['base_url'].'assets/theme/img/');
 define('JS_THEME_URL', $config['base_url'].'assets/theme/js/');
 define('SKINS_THEME_URL', $config['base_url'].'assets/theme/skins/');
 define('CUSTOM_THEME_URL', $config['base_url'].'assets/theme/');
-
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -179,7 +177,7 @@ $config['composer_autoload'] = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-=)^(';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@\=';
 
 /*
 |--------------------------------------------------------------------------

@@ -6,7 +6,7 @@
       <nav class="breadcrumb-nav d-flex align-items-center" aria-label="breadcrumb">
         <div class="container">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a class="under" href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a class="under" href="<?php echo BASE_URL; ?>">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page"><span>Contacts</span></li>
           </ol>
         </div>
@@ -22,11 +22,11 @@
                     <hr class="my-3"/>
                   </div>
                   <ul class="sidebar__contacts">
-                    <li class="d-flex align-items-baseline"><i class="icon icon-phone mr-2"></i><a href="tel:#">8-800-0011-2222-333</a></li>
+                    <li class="d-flex align-items-baseline"><i class="icon icon-phone mr-2"></i><a href="tel:0427-4972973">0427-4972973</a></li>
                     <li class="d-flex align-items-baseline"><i class="icon icon-building mr-2"></i>
-                      <p class="mb-0">314-336 Bourke St,<br>Melbourne VIC 3000,<br>Australia</p>
+                      <p class="mb-0">544/4, F4 1st Floor Shuttari Complex, Jagir Ammapalayam, Junction Main Road, Salem-636005</p>
                     </li>
-                    <li class="d-flex align-items-baseline"><i class="icon icon-envelope-close mr-2"></i><a href="mailto:#">Yourtravel@gmail.com</a></li>
+                    <li class="d-flex align-items-baseline"><i class="icon icon-envelope-close mr-2"></i><a href="mailto:admin@fifobooking.com">admin@fifobooking.com</a></li>
                   </ul>
                 </section>
                 <section class="sidebar__card card">

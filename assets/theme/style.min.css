@@ -1062,8 +1062,8 @@ html.rtl .qty .ui-spinner {
 }
 
 .qty .ui-spinner-input {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     line-height: 24px;
     padding: 0;
     margin: 0;
@@ -1223,7 +1223,7 @@ html.rtl .qty .ui-spinner-button {
 .select2-container .select2-selection--single {
     height: 35px;
     padding: 7px 16px;
-    border-radius: 1.25rem;
+    /*border-radius: 1.25rem;*/
     font-weight: 600;
     font-size: 13px;
     color: #444
@@ -2775,7 +2775,7 @@ body.load .intro__content {
 
 .search-hotels__form .form-group-date {
     width: 100%;
-    max-width: 340px
+   /* max-width: 340px*/
 }
 
 .search-hotels__form .form-group-date>.d-inline-block {
@@ -2794,7 +2794,6 @@ body.load .intro__content {
 .search-hotels__form .select-local {
     -ms-flex-positive: 1;
     flex-grow: 1;
-    border-radius: 4px
 }
 
 .search-hotels__form .select-local .icon-label {

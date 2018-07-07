@@ -156,7 +156,7 @@ class Hotel extends CI_Controller {
             foreach ($objects as $object) {
                 if ($object != "." && $object != "..") {
                     if (is_dir($dir."/".$object))
-                        rrmdir($dir."/".$object);
+                        $this->rrmdir($dir."/".$object);
                     else
                         unlink($dir."/".$object);
                 }
@@ -180,7 +180,7 @@ class Hotel extends CI_Controller {
             $zip = new ZipArchive;
             if ($zip->open($full_path) === true)
             {
-                $uploadPath = FCPATH.'/uploads/'.$hotelName.'/';
+                $uploadPath = FCPATH.'uploads/'.$hotelName.'/';
                 $zip->extractTo($uploadPath);
                 $zip->close();
                 unlink($data['upload_data']['full_path']);

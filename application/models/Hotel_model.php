@@ -335,4 +335,71 @@ class Hotel_model extends CI_Model
             ->result_array();
 
     }
+
+
+    public function getHotelLists($search){
+        return $this->db
+            ->select('fifo_hotels.*,fifo_hotel_details.*,fifo_hotel_contacts.*,fifo_hotel_policies.*,',false)
+            ->from('fifo_hotels')
+            ->join('fifo_hotel_details','fifo_hotels.id = fifo_hotel_details.hotel_id')
+            ->join('fifo_hotel_contacts','fifo_hotels.id = fifo_hotel_contacts.hotel_id')
+            ->join('fifo_hotel_policies','fifo_hotels.id = fifo_hotel_policies.hotel_id')
+            ->group_by('fifo_hotels.name')
+            ->get()
+            ->result_array();
+    }
+
+    public function getMinimumPrice(){
+        return $this->db
+            ->select('MIN(discount_price) as min_price,hotel_id')
+            ->from('fifo_hotel_rooms')
+            ->group_by('fifo_hotel_rooms.hotel_id')
+            ->get()
+            ->result_array();
+    }
+
+    public function getAccommodationType($status){
+        return $this->db
+            ->select('*')
+            ->from('fifo_hotel_categories')
+            ->where('status', $status)
+            ->get()
+            ->result_array();
+    }
+
+    public function getAmenties($status){
+        return $this->db
+            ->select('*')
+            ->from('fifo_amenties')
+            ->where('status', $status)
+            ->get()
+            ->result_array();
+    }
+
+    public function getOneHotel($hotelId){
+        return $this->db
+            ->select('*')
+            ->from('fifo_hotels')
+            ->where('id', $hotelId)
+            ->get()
+            ->row_array();
+    }
+
+    public function getOneHotelDetails($hotelId){
+        return $this->db
+            ->select('*')
+            ->from('fifo_hotel_details')
+            ->where('hotel_id', $hotelId)
+            ->get()
+            ->row_array();
+    }
+
+    public function getOneHotelRooms($hotelId){
+        return $this->db
+            ->select('*')
+            ->from('fifo_hotel_rooms')
+            ->where('hotel_id', $hotelId)
+            ->get()
+            ->result_array();
+    }
 }

@@ -49,14 +49,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-
 $route['default_controller'] = 'home/index';
+$route['homestays'] = 'home/homestays';
 $route['searchlists'] = 'home/searchlists';
 $route['hoteldetails/(:any)'] = 'home/hoteldetails/$1';
 $route['bookingtraveller'] = 'home/bookingtraveller';
 $route['aboutus'] = 'home/aboutus';
 $route['contactus'] = 'home/contactus';
-$route['404_override'] = '';
+$route['rebrandmyhotel'] = 'home/rebrandmyhotel';
+$route['privacyandpolicy'] = 'home/privacyandpolicy';
+$route['termsandconditions'] = 'home/termsandconditions';
+$route['faq'] = 'home/faq';
+$route['franchise'] = 'home/franchise';
+$route['howtomakemyreservation'] = 'home/howtomakemyreservation';
+$route['paymentoptions'] = 'home/paymentoptions';
+$route['bookingtips'] = 'home/bookingtips';
+$route['careers'] = 'home/careers';
+$route['travelagent'] = 'home/travelagent';
+$route['corporateenquiry'] = 'home/corporateenquiry';
+$route['partnerwithus'] = 'home/partnerwithus';
+$route['complete'] = 'home/complete';
+$route['hotelproperties'] = 'home/hotelproperties';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin/hotels/list'] = 'hotel/listHotel';
 $route['admin/hotels/add'] = 'hotel/addHotel';
@@ -64,5 +77,7 @@ $route['admin/hotels/save'] = 'hotel/saveHotel';
 $route['admin/hotels/edit/(:any)'] = 'hotel/editHotel/$1';
 $route['admin/hotels/rooms/add/(:any)'] = 'hotelRooms/add/$1';
 $route['admin/hotels/rooms/save'] = 'hotelRooms/saveHotelRooms';
-$route['hotel/manage/(:any)'] = 'hotel/manage/$1';
+$route['hotel/manage']  = 'hotel/manage';
 $route['hotelAdmin'] = 'Admin/hotel';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;

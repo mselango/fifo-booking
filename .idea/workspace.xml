@@ -3,24 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2f0f6d4b-da7f-409d-8a7b-913f630126d2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Admin.php" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Hotel.php" afterPath="$PROJECT_DIR$/application/controllers/Hotel.php" />
       <change beforePath="$PROJECT_DIR$/application/models/Hotel_model.php" afterPath="$PROJECT_DIR$/application/models/Hotel_model.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/hotels/list.php" afterPath="$PROJECT_DIR$/application/views/admin/hotels/list.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/includes/adminMenu.php" afterPath="$PROJECT_DIR$/application/views/admin/includes/adminMenu.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/includes/footer_includes.php" afterPath="$PROJECT_DIR$/application/views/admin/includes/footer_includes.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/includes/header.php" afterPath="$PROJECT_DIR$/application/views/admin/includes/header.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/hotel_admin/includes/address.php" afterPath="$PROJECT_DIR$/application/views/hotel_admin/includes/address.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/hotel_admin/includes/amenties.php" afterPath="$PROJECT_DIR$/application/views/hotel_admin/includes/amenties.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/hotel_admin/includes/basic_details.php" afterPath="$PROJECT_DIR$/application/views/hotel_admin/includes/basic_details.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/hotel_admin/includes/contact.php" afterPath="$PROJECT_DIR$/application/views/hotel_admin/includes/contact.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/hotel_admin/includes/edit_rooms.php" afterPath="$PROJECT_DIR$/application/views/hotel_admin/includes/edit_rooms.php" />
       <change beforePath="$PROJECT_DIR$/application/views/hotel_admin/includes/photos.php" afterPath="$PROJECT_DIR$/application/views/hotel_admin/includes/photos.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/hotel_admin/includes/policies.php" afterPath="$PROJECT_DIR$/application/views/hotel_admin/includes/policies.php" />
       <change beforePath="$PROJECT_DIR$/application/views/hotel_admin/includes/rooms.php" afterPath="$PROJECT_DIR$/application/views/hotel_admin/includes/rooms.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/hotel_admin/manage_hotel.php" afterPath="$PROJECT_DIR$/application/views/hotel_admin/manage_hotel.php" />
       <change beforePath="$PROJECT_DIR$/assets/js/hotel.js" afterPath="$PROJECT_DIR$/assets/js/hotel.js" />
+      <change beforePath="$PROJECT_DIR$/uploads/abcd/paperless.png" afterPath="$PROJECT_DIR$/uploads/abcd/paperless.png" />
+      <change beforePath="$PROJECT_DIR$/uploads/abcd/queen.png" afterPath="$PROJECT_DIR$/uploads/abcd/queen.png" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,28 +37,28 @@
       <file leaf-file-name="hotel.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/hotel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="53" column="77" lean-forward="false" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="77" />
+            <state relative-caret-position="6354">
+              <caret line="353" column="0" lean-forward="false" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basic_details.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/basic_details.php">
+      <file leaf-file-name="photos.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/photos.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+            <state relative-caret-position="412">
+              <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="maps.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/maps.php">
+      <file leaf-file-name="add_rooms.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/add_rooms.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="35" selection-end-column="9" />
+            <state relative-caret-position="3204">
+              <caret line="178" column="59" lean-forward="false" selection-start-line="178" selection-start-column="59" selection-end-line="178" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -78,8 +67,8 @@
       <file leaf-file-name="Hotel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Hotel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="64" lean-forward="false" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="64" />
+            <state relative-caret-position="311">
+              <caret line="189" column="45" lean-forward="false" selection-start-line="189" selection-start-column="45" selection-end-line="189" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -88,7 +77,7 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/config/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
+            <state relative-caret-position="1188">
               <caret line="66" column="48" lean-forward="false" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
               <folding />
             </state>
@@ -98,8 +87,8 @@
       <file leaf-file-name="rooms.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/rooms.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            <state relative-caret-position="180">
+              <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -108,8 +97,8 @@
       <file leaf-file-name="manage_hotel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/manage_hotel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+            <state relative-caret-position="504">
+              <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -118,12 +107,12 @@
       <file leaf-file-name="Hotel_model.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Hotel_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="270" column="94" lean-forward="false" selection-start-line="270" selection-start-column="94" selection-end-line="270" selection-end-column="94" />
+            <state relative-caret-position="329">
+              <caret line="313" column="53" lean-forward="false" selection-start-line="313" selection-start-column="53" selection-end-line="313" selection-end-column="53" />
               <folding>
-                <marker date="1529864450800" expanded="true" signature="10600:10667" ph="SELECT name fifo_hotels" />
-                <marker date="1529864450800" expanded="true" signature="10600:10764" ph="SELECT name " />
-                <marker date="1529864450800" expanded="true" signature="10674:10764" ph="select city fifo_hotel_details" />
+                <marker date="1530687013338" expanded="true" signature="10627:10694" ph="SELECT name fifo_hotels" />
+                <marker date="1530687013338" expanded="true" signature="10627:10791" ph="SELECT name " />
+                <marker date="1530687013338" expanded="true" signature="10701:10791" ph="select city fifo_hotel_details" />
               </folding>
             </state>
           </provider>
@@ -132,18 +121,18 @@
       <file leaf-file-name="list.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/hotels/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
+            <state relative-caret-position="756">
               <caret line="42" column="104" lean-forward="false" selection-start-line="42" selection-start-column="104" selection-end-line="42" selection-end-column="104" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminMenu.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="adminMenu.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/includes/adminMenu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="74" lean-forward="false" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
+            <state relative-caret-position="216">
+              <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -161,8 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>required</find>
-      <find>max-width</find>
       <find>max-width:</find>
       <find>click</find>
       <find>]</find>
@@ -191,6 +178,8 @@
       <find>form-control</find>
       <find>saveHotel</find>
       <find>getHotelDetails</find>
+      <find>hotelRefreshRoom</find>
+      <find>saveHotelPhotos</find>
     </findStrings>
     <replaceStrings>
       <replace>[</replace>
@@ -253,18 +242,18 @@
         <option value="$PROJECT_DIR$/application/views/hotel_admin/includes/banks.php" />
         <option value="$PROJECT_DIR$/application/views/hotel_admin/includes/contact.php" />
         <option value="$PROJECT_DIR$/application/views/hotel_admin/includes/edit_rooms.php" />
-        <option value="$PROJECT_DIR$/application/views/hotel_admin/includes/photos.php" />
         <option value="$PROJECT_DIR$/application/views/hotel_admin/includes/policies.php" />
         <option value="$PROJECT_DIR$/application/views/hotel_admin/manage_hotel.php" />
         <option value="$PROJECT_DIR$/application/views/hotel_admin/includes/maps.php" />
-        <option value="$PROJECT_DIR$/application/views/hotel_admin/includes/rooms.php" />
         <option value="$PROJECT_DIR$/application/views/hotel_admin/includes/basic_details.php" />
-        <option value="$PROJECT_DIR$/assets/js/hotel.js" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Hotel.php" />
-        <option value="$PROJECT_DIR$/application/models/Hotel_model.php" />
         <option value="$PROJECT_DIR$/application/views/admin/hotels/list.php" />
         <option value="$PROJECT_DIR$/application/views/admin/includes/adminMenu.php" />
+        <option value="$PROJECT_DIR$/assets/js/hotel.js" />
+        <option value="$PROJECT_DIR$/application/views/hotel_admin/includes/rooms.php" />
+        <option value="$PROJECT_DIR$/application/models/Hotel_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Hotel.php" />
+        <option value="$PROJECT_DIR$/application/views/hotel_admin/includes/photos.php" />
       </list>
     </option>
   </component>
@@ -308,12 +297,6 @@
               <item name="fifo" type="b2602c69:ProjectViewProjectNode" />
               <item name="fifo" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="fifo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fifo" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="fifo" type="b2602c69:ProjectViewProjectNode" />
@@ -386,8 +369,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -467,28 +450,32 @@
       <workItem from="1529556515624" duration="162000" />
       <workItem from="1529734819762" duration="25487000" />
       <workItem from="1529824544265" duration="8056000" />
-      <workItem from="1529852845761" duration="6179000" />
+      <workItem from="1529852845761" duration="6404000" />
+      <workItem from="1529904026203" duration="1310000" />
+      <workItem from="1529947043414" duration="1433000" />
+      <workItem from="1529988057795" duration="93000" />
+      <workItem from="1530686288978" duration="2423000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199034000" />
+    <option name="totallyTimeSpent" value="204518000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="16" width="1303" height="780" extended-state="6" />
+    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26693228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.225498" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -668,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -676,7 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4860">
           <caret line="270" column="17" lean-forward="false" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -691,7 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="35" column="48" lean-forward="false" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -699,7 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
           <caret line="50" column="1" lean-forward="false" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -707,7 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -715,7 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -723,7 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="641">
           <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -731,15 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/add_rooms.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2918">
-          <caret line="178" column="59" lean-forward="false" selection-start-line="178" selection-start-column="59" selection-end-line="178" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,7 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
           <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -755,7 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,7 +732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -771,7 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -779,15 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1532">
           <caret line="103" column="119" lean-forward="false" selection-start-line="103" selection-start-column="119" selection-end-line="103" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/photos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -795,7 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="13" column="116" lean-forward="false" selection-start-line="13" selection-start-column="116" selection-end-line="13" selection-end-column="116" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -803,47 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/manage_hotel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/maps.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="35" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/rooms.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/hotel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="53" column="77" lean-forward="false" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="66" column="48" lean-forward="false" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -851,33 +767,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Hotel.php">
+    <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/maps.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="64" lean-forward="false" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="64" />
-          <folding />
+        <state relative-caret-position="576">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="35" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Hotel_model.php">
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="270" column="94" lean-forward="false" selection-start-line="270" selection-start-column="94" selection-end-line="270" selection-end-column="94" />
-          <folding>
-            <marker date="1529864450800" expanded="true" signature="10600:10667" ph="SELECT name fifo_hotels" />
-            <marker date="1529864450800" expanded="true" signature="10600:10764" ph="SELECT name " />
-            <marker date="1529864450800" expanded="true" signature="10674:10764" ph="select city fifo_hotel_details" />
-          </folding>
+        <state relative-caret-position="1188">
+          <caret line="66" column="48" lean-forward="false" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/hotels/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
+        <state relative-caret-position="756">
           <caret line="42" column="104" lean-forward="false" selection-start-line="42" selection-start-column="104" selection-end-line="42" selection-end-column="104" />
           <folding />
         </state>
@@ -885,8 +795,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/includes/adminMenu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="74" lean-forward="false" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
+        <state relative-caret-position="216">
+          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/manage_hotel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/add_rooms.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3204">
+          <caret line="178" column="59" lean-forward="false" selection-start-line="178" selection-start-column="59" selection-end-line="178" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/hotel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6354">
+          <caret line="353" column="0" lean-forward="false" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/rooms.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Hotel_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="313" column="53" lean-forward="false" selection-start-line="313" selection-start-column="53" selection-end-line="313" selection-end-column="53" />
+          <folding>
+            <marker date="1530687013338" expanded="true" signature="10627:10694" ph="SELECT name fifo_hotels" />
+            <marker date="1530687013338" expanded="true" signature="10627:10791" ph="SELECT name " />
+            <marker date="1530687013338" expanded="true" signature="10701:10791" ph="select city fifo_hotel_details" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Hotel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="189" column="45" lean-forward="false" selection-start-line="189" selection-start-column="45" selection-end-line="189" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/hotel_admin/includes/photos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
           <folding />
         </state>
       </provider>
