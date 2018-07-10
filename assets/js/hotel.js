@@ -1,6 +1,11 @@
 
 
-  $( "#upload" ).click(function() {
+$( "#upload" ).click(function() {
+    if($("#hotel_photo_id").val() == ""){
+      //alert("Hotel Name should not be empty");
+      $.growlUI('<p style="font-size:18px;color:red;">Hotel name should not be empty...</p>', "");
+      return false;
+    }
   var file_data = $('#file').prop('files')[0];
   var form_data = new FormData();
   form_data.append('file', file_data);
@@ -25,6 +30,159 @@
   });
 });
 
+
+$( "#imageUpload" ).click(function() {
+      if($("#hotel_photo_id").val() == ""){
+        //alert("Hotel Name should not be empty");
+        $.growlUI('<p style="font-size:18px;color:red;">Hotel name should not be empty...</p>', "");
+        return false;
+      }
+      var hotelId = $("#hotel_photo_id").val();
+      var hotelName = $("#hotel_name").val();
+
+      var uploadedImgArr = [];
+
+      $(".imageThumb").each(function(i){uploadedImgArr.push($(this).attr("title"));})
+    
+      $.ajax({
+      url: base_url + "hotel/savePhotoDb", // point to server-side controller method
+      data: {hotelId:hotelId,hotelName:hotelName,uploadedImgArr:uploadedImgArr},
+      type: 'post',
+      success: function (response) {
+        $.growlUI('Success!!!', response.message);
+        //$("#hotel_photos_form").load(location.href + " #hotel_photos_form");
+      },
+      error: function (response) {
+        $.growlUI('Error!!!', response.message);
+
+      }
+    });
+
+  });
+
+  $(".image-up").click(function(event){
+    if($(this).val() == "zip"){
+       $(".zipDiv").removeClass("hide").addClass("show");
+       $(".imgDiv").removeClass("show").addClass("hide");
+    }else if($(this).val() == "image"){
+      $(".imgDiv").removeClass("hide").addClass("show");
+      $(".zipDiv").removeClass("show").addClass("hide");
+    }
+  });
+
+  if(window.File && window.FileList && window.FileReader) {
+     $("#imagefiles").on("change",function(e) {
+
+      if($("#hotel_photo_id").val() == ""){
+        //alert("Hotel Name should not be empty");
+        $.growlUI('<p style="font-size:18px;color:red;">Hotel name should not be empty...</p>', "");
+        return false;
+      }
+
+     var files = e.target.files ,
+     filesLength = files.length ;
+         // console.log(files);
+     var form_data = new FormData();
+     form_data.append('hotel_id', $("#hotel_photo_id").val());
+     form_data.append('hotel_name', $("#hotel_name").val());
+     for (var i = 0; i < filesLength ; i++) {
+     var f = files[i];
+     form_data.append("image_file[]", f);
+     // var fileReader = new FileReader();
+     //    fileReader.onload = (function(e) {
+     //      var file = e.target;
+     //      $("<span class=\"pip\">" +
+     //        "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+     //        "<br/><span class=\"remove\">Remove image</span>" +
+     //        "</span>").insertAfter("#imagefiles");
+     //      $(".remove").click(function(){
+     //        $(this).parent(".pip").remove();
+     //      });
+          
+     //      // Old code here
+     //      /*$("<img></img>", {
+     //        class: "imageThumb",
+     //        src: e.target.result,
+     //        title: file.name + " | Click to remove"
+     //      }).insertAfter("#files").click(function(){$(this).remove();});*/
+          
+     //    });
+     //    fileReader.readAsDataURL(f);
+     }
+      $.ajax({
+          url: base_url + "hotel/uploadImages", // point to server-side controller method
+          dataType: 'json', // what to expect back from the server
+          cache: false,
+          contentType: false,
+          processData: false,
+          data: form_data,
+          type: 'post',
+          success: function (response) {
+            $.growlUI('Success!!!', response.message);
+
+            var imagePreviewHtml = "";
+
+            for(var i=0;i<response.imgNames.length;i++){
+              imagePreviewHtml += "<span class='pip'><img class='imageThumb' src='"+base_url+response.uploadPath+'/'+response.imgNames[i]+"' title='"+response.imgNames[i]+"' /><br><span class='remove' id='"+response.imgNames[i]+"'>Remove Image</span></span>";
+            }
+
+            $("#img-preview").html("");
+      
+            $("#img-preview").html(imagePreviewHtml);
+
+             $(".remove").click(function(event){
+                 var hotelName = $("#hotel_name").val();
+                 var hotelId = $("#hotel_photo_id").val();
+                 var uploadPath = 'uploads/'+hotelName;
+                 $.ajax({
+                   url: base_url +'hotel/removeImage',
+                   type: 'post',
+                   data: {path:uploadPath,imageName: $(this).attr("id"),hotelId:hotelId,hotelName:hotelName},
+                   success: function(response){
+                    response = JSON.parse(response);
+                    if(response.success == true){
+                       $("span[id='"+response.imgName+"']").parent(".pip").remove();
+                    }
+                   }
+                 });
+              });
+            //$("#hotel_photos_form").load(location.href + " #hotel_photos_form");
+            // $("<span class=\"pip\">" +
+            // "<img class=\"imageThumb\" src=\"" + response.uploadPath+"\"+ + "\" title=\"" + file.name + "\"/>" +
+            // "<br/><span class=\"remove\">Remove image</span>" +
+            // "</span>").insertAfter("#imagefiles");
+
+          },
+          error: function (response) {
+            $.growlUI('Error!!!', response.message);
+
+          }
+        });
+    });
+ } else { 
+  alert("Your browser doesn't support to File API") 
+}
+
+
+ $(".remove").click(function(event){
+     var hotelName = $("#hotel_name").val();
+     var hotelId = $("#hotel_photo_id").val();
+     var uploadPath = 'uploads/'+hotelName;
+     $.ajax({
+       url: base_url +'hotel/removeImage',
+       type: 'post',
+       data: {path:uploadPath,imageName: $(this).attr("id"),hotelId:hotelId,hotelName:hotelName},
+       success: function(response){
+        response = JSON.parse(response);
+        if(response.success == true){
+           $("span[id='"+response.imgName+"']").parent(".pip").remove();
+        }
+       }
+     });
+  });
+
+
+
 $( "#basic_submit" ).click(function( event ) {
   var error = false;
   $(".error").remove();
@@ -44,6 +202,8 @@ $( "#basic_submit" ).click(function( event ) {
   );
   if(error === false) {
     var data = $("#basic_hotel_form").serialize();
+
+    console.log(data);return false;
     $.ajax({
       type: "POST",
       url: base_url + "hotel/save",

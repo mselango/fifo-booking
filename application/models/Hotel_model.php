@@ -402,4 +402,30 @@ class Hotel_model extends CI_Model
             ->get()
             ->result_array();
     }
+
+    public function isImageExists($hotelId,$imgUrl){
+        return $this->db
+            ->select('*')
+            ->from('fifo_hotel_photos')
+            ->where('hotel_id', $hotelId)
+            ->where('image_url', $imgUrl)
+            ->get()
+            ->result_array();
+    }
+
+    public function getHotelPhotos($hotelId,$status){
+        return $this->db
+            ->select('*')
+            ->from('fifo_hotel_photos')
+            ->where('hotel_id', $hotelId)
+            ->where('status', $status)
+            ->get()
+            ->result_array();
+    }
+
+    public function deleteImage($hotelId,$imgUrl){
+        $this->db->where('hotel_id', $hotelId);
+        $this->db->where('image_url', $imgUrl);
+        return $this->db->delete('fifo_hotel_photos');
+    }
 }

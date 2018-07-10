@@ -102,7 +102,7 @@
 
               <h4>Property Details: <span>Step 1 - 6</span></h4>
 
-
+                
                   <div class="form-group">
                      <label>How did you come to know about us?: </label>
                      <select class="form-control" name="knowaboutus" id="knowaboutus">
@@ -568,7 +568,7 @@
                   </div>
 
                   <div class="form-wizard-buttons">
-                      <button type="button" class="btn btn-next">Next</button>
+                      <button type="button" class="btn btn-next stepSubmit">Next</button>
                   </div>
             </fieldset>
               <!-- Form Step 1 -->
@@ -726,11 +726,18 @@
 
 <script type="text/javascript">
   
-  $(document).bind("location_changed", function(event, object) {
+$(document).bind("location_changed", function(event, object) {
   var lat = $(object).find('.gllpLatitude').val();
   var lng = $(object).find('.gllpLongitude').val();
   var latLng = lat + ',' + lng;
   $(object).find('.gllpLatLng').val(latLng);
 });
+
+$(document).ready(function(){
+  $(".search-hotels").click(function(e){
+  })
+});
+
+  stepSubmit
 
 </script>

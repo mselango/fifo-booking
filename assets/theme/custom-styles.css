@@ -175,3 +175,19 @@ div.showDiv{
     height: 38px !important;
     color: #ffffff !important;
 }
+.sticky-book{
+    border: 1px solid rgb(253, 126, 20);
+    background: rgb(253, 230, 210);
+}
+.sticky-book-close{
+    position: relative;
+    left: 109px;
+    bottom: 16px;
+    cursor: pointer;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}

@@ -214,7 +214,7 @@
               <div class="col col-lg-6 d-none d-md-flex align-items-center justify-content-center"><a class="page-header__call d-flex align-items-center text-nowrap" href="tel:0427-4972973"><i class="icon icon-call js-tooltip-call mr-3" data-toggle="tooltip" data-placement="bottom" title="Support 0427-4972973"></i>
                   <div class="page-header__call-right">
                     <div class="title fz-small">Support</div>
-                    <div class="phone fw-bold">0427-4972973</div>
+                    <div class="phone fw-bold">+914274972973</div>
                   </div></a>
                 <div class="page-header__top-search d-none d-lg-block ml-4" id="navbarSearch">
                   <form class="navbar-search" action="#" method="GET">

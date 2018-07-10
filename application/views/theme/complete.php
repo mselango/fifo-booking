@@ -27,7 +27,7 @@
             </li>
           </ul>
           <p>We've sent you an email with an account activation link. <br>
-            <b>As soon as you click the link, you can start using your FIFO Hotel Merchant account <a href="<?php echo BASE_URL; ?>hotelproperties">Click here.</a></b>
+            <b>As soon as you click the link, you can start using your FIFO Hotel Merchant account <a href="<?php echo BASE_URL; ?>hotelAdmin">Click here.</a></b>
           </p>
           <h4>FIFO PEOPLES</h4>
         </div>

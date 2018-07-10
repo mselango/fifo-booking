@@ -23,27 +23,27 @@
 
                           <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
                             <div class="btn-group" role="group">
-                              <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                              <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                                 <div class="hidden-xs">Basic Details</div>
                               </button>
                             </div>
                             <div class="btn-group" role="group">
-                              <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                              <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                 <div class="hidden-xs">Address</div>
                               </button>
                             </div>
                             <div class="btn-group" role="group">
-                              <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                              <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
                                 <div class="hidden-xs">Contacts</div>
                               </button>
                             </div>
                             <div class="btn-group" role="group">
-                              <button type="button" id="following" class="btn btn-default" href="#tab4" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                              <button type="button" id="following" class="btn btn-default" href="#tab4" data-toggle="tab"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                                 <div class="hidden-xs">Amenties</div>
                               </button>
                             </div>
                             <div class="btn-group" role="group">
-                              <button type="button" id="following" class="btn btn-default" href="#tab5" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                              <button type="button" id="following" class="btn btn-default" href="#tab5" data-toggle="tab"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
                                 <div class="hidden-xs">Photos</div>
                               </button>
                             </div>
@@ -55,19 +55,19 @@
                           </div>
 
                           <div class="btn-group" role="group">
-                              <button type="button" id="following" class="btn btn-default" href="#tab7" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                              <button type="button" id="following" class="btn btn-default" href="#tab7" data-toggle="tab"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                                   <div class="hidden-xs">Rooms</div>
                               </button>
                           </div>
 
                             <div class="btn-group" role="group">
-                              <button type="button" id="following" class="btn btn-default" href="#tab8" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                              <button type="button" id="following" class="btn btn-default" href="#tab8" data-toggle="tab"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
                                 <div class="hidden-xs">Maps</div>
                               </button>
                             </div>
 
                             <div class="btn-group" role="group">
-                              <button type="button" id="following" class="btn btn-default" href="#tab9" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                              <button type="button" id="following" class="btn btn-default" href="#tab9" data-toggle="tab"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
                                 <div class="hidden-xs">Banks</div>
                               </button>
                             </div>

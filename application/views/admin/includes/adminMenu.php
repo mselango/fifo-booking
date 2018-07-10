@@ -6,20 +6,28 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
+                    <!-- <li class="header">MAIN NAVIGATION</li> -->
+
+                    <?php 
+                    $sessionData = $this->session->userdata('user_data');
+                    ?>
+
                     <li class="active" id="m_dashboard">
-                        <a href="index.html">
-                            <i class="material-icons">home</i>
-                            <span>Home</span>
-                        </a>
+                        <?php  if($sessionData->role_id != 2) : ?>
+                            <a href="index.html">
+                                <i class="material-icons">home</i>
+                                <span>Home</span>
+                            </a>
+                        <?php endif;?>
                     </li>
-
-
+                    
                      <li id="cms" <?php if($this->uri->segment(1)=="cms"){echo 'class="active"';}?>>
+                         <?php  if($sessionData->role_id != 2) : ?>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">swap_calls</i>
                             <span>CMS</span>
                         </a>
+                        <?php endif;?>
                         <ul class="ml-menu">
                             <li id="aboutus" <?php if($this->uri->segment(2)=="aboutUs"){echo 'class="active"';}?>>
                                 <a href="<?php echo base_url(); ?>cms/aboutUs">About us</a>
@@ -96,9 +104,11 @@
                             <li>
                                 <a href="<?php echo base_url('hotel/manage');?>">Add</a>
                             </li>
+                            <?php  if($sessionData->role_id != 2) : ?>
                             <li>
                                 <a href="<?php echo base_url('admin/hotels/list');?>">List</a>
                             </li>
+                        <?php endif;?>
 
                         </ul>
                     </li>

@@ -9,6 +9,7 @@ class Hotel extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->model('hotel_model');
         $this->load->model('master_model');
+        $this->load->model('common_model');
     }
 
     public function manage($hotelId = '')
@@ -25,6 +26,7 @@ class Hotel extends CI_Controller {
             $data['hotel_rooms'] = $this->hotel_model->getHotelRooms($hotelId);
             $data['hotel_policies'] = $this->hotel_model->getHotelPolicies($hotelId);
             $data['hotel_banks'] = $this->hotel_model->getHotelBanks($hotelId);
+            $data['hotel_photos'] = $this->hotel_model->getHotelPhotos($hotelId,1);
         }
         $this->load->view('hotel_admin/manage_hotel', $data);
     }
@@ -103,6 +105,7 @@ class Hotel extends CI_Controller {
 
     public function saveHotel()
     {
+
         $rules = $this->validationRules( $this->input->post('user_type'));
         $data['countries'] = $this->master_model->getCountryList();
         $this->form_validation->set_rules($rules);
@@ -156,13 +159,128 @@ class Hotel extends CI_Controller {
             foreach ($objects as $object) {
                 if ($object != "." && $object != "..") {
                     if (is_dir($dir."/".$object))
-                        $this->rrmdir($dir."/".$object);
+                        rrmdir($dir."/".$object);
                     else
                         unlink($dir."/".$object);
                 }
             }
             rmdir($dir);
         }
+    }
+
+    public function uploadImages(){
+
+         $this->load->library('upload');
+
+         $hotelName = $this->input->post('hotel_name');
+
+         $hotelId = $this->input->post('hotel_id');
+
+         $uploadPath = 'uploads/'.$hotelName;
+
+         if (!is_dir($uploadPath)) {
+            mkdir($uploadPath, 0777, TRUE);
+         }
+
+         $photoArray = array();
+         $imgPath = array();
+
+         $files = $_FILES;
+         $cpt = count($_FILES['image_file']['name']);
+         for($i=0; $i<$cpt; $i++){
+            $imageName = str_replace(" ","_",$files['image_file']['name'][$i]);
+            $_FILES['file']['name']     = $imageName;
+            $_FILES['file']['type']     = $files['image_file']['type'][$i];
+            $_FILES['file']['tmp_name'] = $files['image_file']['tmp_name'][$i];
+            $_FILES['file']['error']    = $files['image_file']['error'][$i];
+            $_FILES['file']['size']     = $files['image_file']['size'][$i];
+
+            //array_push($imgPath, $imageName);
+     
+            $this->upload->initialize($this->set_upload_options($uploadPath));
+            if($this->upload->do_upload('file')){
+                $upload = true;
+            }
+         }
+
+            $images = glob($uploadPath."/*");
+
+            for ($i=0; $i<count($images); $i++){
+                $imgName = substr($images[$i], strrpos($images[$i], '/') + 1);
+                $num = base_url().$images[$i];
+                array_push($imgPath, $imgName);
+            }
+
+            $photoArray["uploadPath"] = $uploadPath; 
+            $photoArray["imgNames"] = $imgPath;
+            $photoArray["success"] = true;
+            $photoArray["message"] = "Image moved to folder for preview purpose";
+         
+         if($upload){
+            echo json_encode($photoArray);
+         }else{
+            echo json_encode(['success' => false, 'message' => 'error','error' => $this->upload->display_errors()]);
+         }
+
+    }
+
+    public function removeImage(){
+        $uploadPath = $this->input->post("path");
+        $imageName = $this->input->post("imageName");
+        $hotelId = $this->input->post("hotelId");
+        $hotelName = $this->input->post("hotelName");
+
+        $path = $uploadPath."/".$imageName;
+
+        $hotelPath = $hotelName."/".$imageName;
+
+        $return_text = 0;
+
+        if( file_exists($path) ){
+
+        // Remove file 
+         unlink($path);
+
+        // Set status
+         $return_text = 1;
+
+         $this->hotel_model->deleteImage($hotelId,$hotelPath);
+
+         echo json_encode(["success" => true, "imgName" => $imageName]);
+        }else{
+
+        // Set status
+         $return_text = 0;
+         echo json_encode(["success" => false, "imgName" => $imageName]);
+        }
+    }
+
+    public function savePhotoDb(){
+        $hotelId = $this->input->post("hotelId");
+        $hotelName = $this->input->post("hotelName");
+        $uploadedImgArr = $this->input->post("uploadedImgArr");
+        foreach ($uploadedImgArr as $key => $value) {
+           
+            $imgUrl = $hotelName."/".$value;
+            echo $availImage = $this->hotel_model->isImageExists($hotelId,$imgUrl);
+            if(count($availImage)<1){
+               $data = array("hotel_id"=>$hotelId,"image_url"=>$imgUrl,"status"=>1);
+               $this->common_model->insert_data("fifo_hotel_photos",$data);
+            }
+           
+        }
+
+         echo json_encode(['success' => true, 'message' => 'data saved successfully']);
+    }
+
+    private function set_upload_options($uploadPath){   
+        //  upload an image options
+        $config = array();
+        $config['upload_path'] = './'.$uploadPath.'/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size']      = '0';
+        $config['overwrite']     = TRUE;
+        return $config;
     }
 
     public function savePhotos()
@@ -180,7 +298,7 @@ class Hotel extends CI_Controller {
             $zip = new ZipArchive;
             if ($zip->open($full_path) === true)
             {
-                $uploadPath = FCPATH.'uploads/'.$hotelName.'/';
+                $uploadPath = FCPATH.'/uploads/'.$hotelName.'/';
                 $zip->extractTo($uploadPath);
                 $zip->close();
                 unlink($data['upload_data']['full_path']);

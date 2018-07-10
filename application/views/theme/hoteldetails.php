@@ -30,6 +30,10 @@ if(isset($fifo_Hotels_Details)){
 }
 
 
+ $dirname = "uploads/".str_replace(' ','-',$fifo_Hotels['name'])."/";
+$images = glob($dirname."*");
+  
+
 ?>
 
  <main class="page-main">
@@ -273,41 +277,31 @@ if(isset($fifo_Hotels_Details)){
                       <div class="hotel-gallery">
                         <div class="hotel-gallery__carousel swiper-container js-hotel-carousel">
                           <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/1.jpg" alt="#"/>
-                            </div>
-                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/2.jpg" alt="#"/>
-                            </div>
-                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/3.jpg" alt="#"/>
-                            </div>
-                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/4.jpg" alt="#"/>
-                            </div>
-                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/5.jpg" alt="#"/>
-                            </div>
-                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/6.jpg" alt="#"/>
-                            </div>
-                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/7.jpg" alt="#"/>
-                            </div>
-                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/8.jpg" alt="#"/>
-                            </div>
-                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/9.jpg" alt="#"/>
-                            </div>
-                            <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/10.jpg" alt="#"/>
-                            </div>
+                            <?php for ($i=0; $i<count($images); $i++){
+                                    $imgName = substr($images[$i], strrpos($images[$i], '/') + 1);
+                                    $num = BASE_URL.$images[$i];
+                                    ?>
+                                  <div class="swiper-slide"><img class="img-fluid img-cover" src="<?php echo $num; ?>" alt="#"/>
+                                  </div>
+                                    <?php 
+                                  }
+                              ?>
+                           
+                            
                           </div>
                           <div class="hotel-gallery__controls"><a class="hotel-gallery__arrow shadow-sm js-prev" role="button"><i class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 44 44"><path d="M22.119 44.237C9.922 44.237 0 34.315 0 22.119S9.922.001 22.119.001s22.119 9.922 22.119 22.118-9.924 22.118-22.119 22.118zm0-42.736C10.75 1.501 1.5 10.75 1.5 22.119c0 11.368 9.25 20.618 20.619 20.618s20.619-9.25 20.619-20.618c0-11.369-9.25-20.618-20.619-20.618z"/><path d="M24.667 29.884a.74.74 0 0 1-.53-.22l-7.328-7.334a.752.752 0 0 1 0-1.061l7.328-7.333a.75.75 0 1 1 1.061 1.061L18.4 21.8l6.798 6.805a.752.752 0 0 1 0 1.061.75.75 0 0 1-.531.218z"/></svg></i></a><a class="hotel-gallery__arrow shadow-sm js-next" role="button"><i class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 44 44"><path d="M22.118 44.236C9.922 44.236 0 34.314 0 22.118S9.922 0 22.118 0s22.118 9.922 22.118 22.118-9.922 22.118-22.118 22.118zm0-42.736C10.75 1.5 1.5 10.749 1.5 22.118c0 11.368 9.25 20.618 20.618 20.618 11.37 0 20.618-9.25 20.618-20.618 0-11.369-9.248-20.618-20.618-20.618z"/><path d="M19.341 29.884a.75.75 0 0 1-.53-1.281l6.796-6.804-6.796-6.803a.75.75 0 1 1 1.061-1.061l7.325 7.333a.75.75 0 0 1 0 1.061l-7.325 7.333a.742.742 0 0 1-.531.222z"/></svg></i></a></div>
                         </div>
                         <div class="hotel-gallery__thumbs swiper-container js-hotel-carousel-thumbs">
                           <div class="swiper-wrapper">
-                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/1.jpg" data-description="Joshua Tree Homesteader Cabin"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/1.jpg" alt="#"/></a></div>
-                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/2.jpg" data-description="A perfect place to snuggle up after a fun day in Asheville!"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/2.jpg" alt="#"/></a></div>
-                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/3.jpg" data-description="A perfect place to snuggle up after a fun day in Asheville!"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/3.jpg" alt="#"/></a></div>
-                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/4.jpg" data-description="Underfloor heating in the bathroom floor to keep your toes warm!"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/4.jpg" alt="#"/></a></div>
-                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/5.jpg" data-description="Full kitchen with full size refrigerator and dining table"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/5.jpg" alt="#"/></a></div>
-                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/6.jpg" data-description="The combination living room and kitchen includes a dining table."><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/6.jpg" alt="#"/></a></div>
-                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/7.jpg" data-description="You'll know you've arrived when you reach the driveway gate."><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/7.jpg" alt="#"/></a></div>
-                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/8.jpg" data-description="Stone walls and steps compliment the garden area behind the brick patio"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/8.jpg" alt="#"/></a></div>
-                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/9.jpg" data-description="Custom-tiled shower, big enough for two people!"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/9.jpg" alt="#"/></a></div>
-                            <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo IMAGE_THEME_URL; ?>upload/10.jpg" data-description="View of the backyard parking area as seen from the upstairs unit deck. There is one parking space per unit (one for upstairs, one for downstairs, and one for us in the tiny house in the back!)"><img class="img-cover" src="<?php echo IMAGE_THEME_URL; ?>upload/10.jpg" alt="#"/></a></div>
+
+                            <?php for ($i=0; $i<count($images); $i++){
+                                    $imgName = substr($images[$i], strrpos($images[$i], '/') + 1);
+                                    $num = BASE_URL.$images[$i];
+                                    ?>
+                                    <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="<?php echo $num; ?>" data-description="Joshua Tree Homesteader Cabin"><img class="img-cover" src="<?php echo $num; ?>" alt="#"/></a></div>
+                                    <?php 
+                                  }
+                              ?>       
                           </div>
                         </div>
                       </div>
@@ -543,15 +537,11 @@ if(isset($fifo_Hotels_Details)){
                            
                           </div>
                           <div class="col-12 col-md-4 hotel-items__check">
-                            <div class="py-3 js-sticky-top">
-                              <p class="mb-4">You book 3 room for</p>
-                              <ul class="text-danger mb-4">
-                                <li class="price">3 976 €</li>
-                                <li>You are lucky! Today, this room has a special price!</li>
-                              </ul>
-                              <p class="mb-2"><a class="btn btn-secondary btn--round btn-order booked-room disabled" href="<?php echo BASE_URL; ?>bookingtraveller" role="button">book now</a>
-                              </p>
-                              <p>This is your fourth trip. Book 1 more trip and get a 10% discount!</p>
+                             <div class="py-3 js-sticky-top sticky-book">
+                                <i class="fa fa-remove sticky-book-close hide"></i>
+                                <div class="sticky-book-details">
+                                <p> Your cart is empty!</p>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1805,16 +1795,30 @@ if(isset($fifo_Hotels_Details)){
         n.find(".modal-title .title").text(o);
         mapInit(lat,long);
     })
+
+     $(".sticky-book-close").click(function(e){
+        $(".sticky-book-details").html('<p> Your cart is empty!</p>');
+        $(".selected-room-added").addClass("selected-room");
+        $(".selected-room").removeClass("selected-room-added");
+        $(".selected-room").removeClass("disabled");
+        $(".selected-room").text("Select Room");
+        $(".sticky-book-close").removeClass("show").addClass("hide");
+     })
+
   });
 
   function selectedRoom(roomId,hotelId){
       $(".selected-room-added").addClass("selected-room");
       $(".selected-room").removeClass("selected-room-added");
+      $(".selected-room").removeClass("disabled");
+      $(".selected-room").text("Select Room");
       $("#selected-room-"+hotelId+roomId).addClass("disabled");
       $("#selected-room-"+hotelId+roomId).text("Selected Room");
       $("#selected-room-"+hotelId+roomId).removeClass("selected-room");
       $("#selected-room-"+hotelId+roomId).addClass("selected-room-added");
       $(".booked-room").removeClass("disabled");
+      $(".sticky-book-close").removeClass("hide").addClass("show");
+      $(".sticky-book-details").html('<p class="mb-4">You book 3 room for</p> <ul class="text-danger mb-4"> <li class="price">3 976 €</li><li>You are lucky! Today, this room has a special price!</li></ul><p class="mb-2"><a class="btn btn-secondary btn--round btn-order booked-room disabled" href="<?php echo BASE_URL; ?>bookingtraveller" role="button">book now</a></p><p>This is your fourth trip. Book 1 more trip and get a 10% discount!</p>');
   }
 
 </script>

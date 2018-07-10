@@ -296,12 +296,24 @@
                           $min_price = $hotel['min_price'];
                         }
                       }
+                     
+
+                  $dirname = "uploads/".str_replace(' ','-',$row['name'])."/";
+                  $num="";
+                  $images = glob($dirname."*");
+                  for ($i=0; $i<count($images); $i++){
+                    if($i==0){
+                      $imgName = substr($images[$i], strrpos($images[$i], '/') + 1);
+                      $num = BASE_URL.$images[$i];
+                    }
+                  }
+                    ?>
 
                 ?>
                 <div class="col-12 d-flex">
                   <div class="product bg-white js-grid-item product--list">
                     <div class="product__special bg-primary text-white">special price
-                    </div><a class="product__img-top d-block" href="<?php echo BASE_URL; ?>hoteldetails/<?php echo $row['hotel_id']; ?>" target="_new"><img class="img-fluid" src="<?php echo IMAGE_THEME_URL; ?>hotels/item-15.jpg" alt="#"/></a>
+                    </div><a class="product__img-top d-block" href="<?php echo BASE_URL; ?>hoteldetails/<?php echo $row['hotel_id']; ?>" target="_new"><img class="img-fluid" src="<?php echo $num; ?>" alt="#"/></a>
                     <div class="product__body">
                       <h4 class="product__title"><a href="<?php echo BASE_URL; ?>hoteldetails/<?php echo $row['hotel_id']; ?>" target="_new"><?php echo $row['name']; ?></a></h4>
                       <div class="product__rating mb-2">
